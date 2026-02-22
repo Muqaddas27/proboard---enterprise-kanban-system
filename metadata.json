@@ -1,0 +1,8 @@
+
+{
+  "name": "ProBoard - Enterprise Kanban System",
+  "description": "A high-performance, Trello-inspired Kanban board with collaborative features, AI-powered card descriptions, and robust drag-and-drop workflow management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
