@@ -155,7 +155,7 @@ const Navbar: React.FC = () => {
           {showProfile && (
             <>
               <div className="fixed inset-0 z-[100]" onClick={() => setShowProfile(false)} />
-              <div className="absolute right-0 mt-2 w-72 bg-white rounded-2xl shadow-2xl border border-slate-100 z-[101] overflow-hidden animate-in zoom-in-95 slide-in-from-top-2 duration-200">
+              <div className="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-2xl border border-slate-100 z-[101] overflow-hidden animate-in zoom-in-95 slide-in-from-top-2 duration-200">
                 {/* Profile Header */}
                 <div className="px-6 py-4 bg-gradient-to-r from-indigo-50 to-indigo-100 border-b border-slate-200">
                   <div className="flex items-center gap-4">
@@ -173,19 +173,19 @@ const Navbar: React.FC = () => {
                 <div className="py-2 px-2">
                   <button 
                     onClick={handleProfileSettings}
-                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-xl flex items-center gap-3 transition-colors font-medium group">
+                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-lg flex items-center gap-3 transition-colors font-medium group">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
                     Profile Settings
                   </button>
                   <button 
                     onClick={handleWorkspaceSettings}
-                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-xl flex items-center gap-3 transition-colors font-medium group">
+                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-lg flex items-center gap-3 transition-colors font-medium group">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
                     Workspace Settings
                   </button>
                   <button 
                     onClick={handleHelpSupport}
-                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-xl flex items-center gap-3 transition-colors font-medium group">
+                    className="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-slate-100 rounded-lg flex items-center gap-3 transition-colors font-medium group">
                     <svg className="w-4 h-4 text-slate-400 group-hover:text-indigo-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
                     Help & Support
                   </button>
@@ -198,7 +198,7 @@ const Navbar: React.FC = () => {
                 <div className="p-2">
                   <button 
                     onClick={handleSignOut}
-                    className="w-full text-left px-4 py-3 text-sm text-rose-600 hover:bg-rose-50 rounded-xl flex items-center gap-3 font-bold transition-colors group"
+                    className="w-full text-left px-4 py-3 text-sm text-rose-600 hover:bg-rose-50 rounded-lg flex items-center gap-3 font-bold transition-colors group"
                   >
                     <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
                     Sign Out

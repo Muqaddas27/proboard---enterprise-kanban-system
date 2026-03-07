@@ -28,7 +28,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({ filterPriority, setFilter
           <button
             key={filter.key}
             onClick={() => setFilterPriority(filter.key)}
-            className={`w-full px-4 py-4 rounded-xl text-sm font-bold transition-all text-left flex items-center gap-3 active:scale-95 ${
+            className={`w-full px-4 py-4 rounded-lg text-sm font-bold transition-all text-left flex items-center gap-3 active:scale-95 ${
               filterPriority === filter.key
                 ? `bg-gradient-to-r ${
                     filter.color === 'indigo' ? 'from-indigo-600 to-indigo-700' :

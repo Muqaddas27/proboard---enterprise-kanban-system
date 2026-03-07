@@ -290,7 +290,7 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
             }}
           />
           <div
-            className="fixed w-80 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto bg-white border-4 border-red-500 rounded-xl p-4 shadow-2xl z-[99999]"
+            className="fixed w-80 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto bg-white border-4 border-red-500 rounded-lg p-4 shadow-2xl z-[99999]"
             style={{
               top: `${position.top}px`,
               left: `${position.left}px`

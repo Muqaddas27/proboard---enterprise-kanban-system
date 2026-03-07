@@ -306,7 +306,7 @@ const KanbanBoard: React.FC = () => {
               <div
                 ref={filterDropdownRef}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute top-full mt-2 left-0 w-64 max-h-[70vh] overflow-y-auto bg-white border border-slate-200 rounded-xl shadow-2xl p-3"
+                className="absolute top-full mt-2 left-0 w-64 max-h-[70vh] overflow-y-auto bg-white border border-slate-200 rounded-lg shadow-2xl p-3"
                 style={{ zIndex: 9999, position: 'absolute' }}
               >
                 <p className="text-xs font-bold text-slate-500 uppercase tracking-wider px-2 pb-2">Task Filters</p>
@@ -376,7 +376,7 @@ const KanbanBoard: React.FC = () => {
 
             {/* Add List Button */}
             {isAddingList ? (
-              <form onSubmit={handleAddList} className="w-80 min-w-80 bg-white/10 backdrop-blur-xl p-6 rounded-xl shadow-xl border border-white/30 animate-in slide-in-from-right-4 duration-300 flex flex-col gap-3">
+              <form onSubmit={handleAddList} className="w-80 min-w-80 bg-white/10 backdrop-blur-xl p-6 rounded-lg shadow-xl border border-white/30 animate-in slide-in-from-right-4 duration-300 flex flex-col gap-3">
                 <input
                   autoFocus
                   placeholder="Column name..."
@@ -408,7 +408,7 @@ const KanbanBoard: React.FC = () => {
             ) : (
               <button 
                 onClick={() => setIsAddingList(true)}
-                className="w-80 min-w-80 h-14 flex items-center justify-center gap-3 bg-white/10 hover:bg-indigo-500/20 text-slate-300 rounded-xl transition-all border-2 border-dashed border-white/30 hover:border-indigo-400 group shadow-sm"
+                className="w-80 min-w-80 h-14 flex items-center justify-center gap-3 bg-white/10 hover:bg-indigo-500/20 text-slate-300 rounded-lg transition-all border-2 border-dashed border-white/30 hover:border-indigo-400 group shadow-sm"
                 title="Add new column"
               >
                 <div className="w-6 h-6 rounded-lg bg-slate-600 flex items-center justify-center group-hover:bg-indigo-500 transition-all">

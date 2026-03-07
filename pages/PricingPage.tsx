@@ -110,7 +110,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onNavigateLanding, onNavigate
               {plans.map((plan, index) => (
                 <div 
                   key={index} 
-                  className={`rounded-2xl p-6 border-2 transition-all duration-500 cursor-pointer backdrop-blur-xl relative ${
+                  className={`rounded-lg p-6 border-2 transition-all duration-500 cursor-pointer backdrop-blur-xl relative ${
                     plan.recommended 
                       ? 'bg-gradient-to-br from-indigo-600/20 to-purple-600/20 border-indigo-400/50 shadow-[0_20px_60px_-15px_rgba(99,102,241,0.5)]'
                       : 'bg-gradient-to-br from-slate-800/40 to-slate-900/40 border-slate-700/50'
@@ -136,7 +136,7 @@ const PricingPage: React.FC<PricingPageProps> = ({ onNavigateLanding, onNavigate
                       <div className="text-white/50 font-semibold text-xs">{plan.period}</div>
                     </div>
 
-                    <button className={`w-full py-3 rounded-xl font-bold transition-all text-sm shadow-lg ${
+                    <button className={`w-full py-3 rounded-lg font-bold transition-all text-sm shadow-lg ${
                       plan.recommended
                         ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-indigo-500/50'
                         : 'bg-white/5 text-white border-2 border-white/20'

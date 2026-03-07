@@ -166,7 +166,7 @@ const SortableList: React.FC<SortableListProps> = ({ list, onCardClick, cardAcce
     <div
       ref={setNodeRef}
       style={listStyle}
-      className="flex flex-col w-80 min-w-80 h-full rounded-xl border border-white/20 shadow-sm overflow-hidden transition-all hover:shadow-md z-10 relative backdrop-blur-sm"
+      className="flex flex-col w-80 min-w-80 h-full rounded-lg border border-white/20 shadow-sm overflow-hidden transition-all hover:shadow-md z-10 relative backdrop-blur-sm"
     >
       {/* Header */}
       <div 

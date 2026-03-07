@@ -63,7 +63,7 @@ const ConfirmDialogComponent: React.FC<ConfirmDialogComponentProps> = ({ dialog,
   return (
     <div className="fixed inset-0 z-[500] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
-        className="rounded-2xl shadow-2xl max-w-sm w-full animate-in zoom-in-95 fade-in duration-300 border"
+        className="rounded-lg shadow-2xl max-w-sm w-full animate-in zoom-in-95 fade-in duration-300 border"
         style={{
           background: theme.surfaceBg,
           borderColor: theme.accentBorder,

@@ -121,7 +121,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({ onNavigateLanding, onNaviga
                   <p className="text-white/80 font-semibold mb-8 group-hover:text-white transition-colors text-lg leading-relaxed relative">{feature.description}</p>
                   <div className="flex flex-wrap gap-3 relative">
                     {feature.details.map((detail, i) => (
-                      <span key={i} className="text-sm font-extrabold bg-gradient-to-r from-indigo-500/40 to-purple-500/40 text-indigo-100 px-4 py-2.5 rounded-xl 
+                      <span key={i} className="text-sm font-extrabold bg-gradient-to-r from-indigo-500/40 to-purple-500/40 text-indigo-100 px-4 py-2.5 rounded-lg 
                         group-hover:from-indigo-500/60 group-hover:to-purple-500/60 group-hover:text-white transition-all duration-300 border border-indigo-400/30 group-hover:border-indigo-300/50 shadow-lg group-hover:shadow-xl group-hover:scale-110">
                         {detail}
                       </span>
@@ -146,7 +146,7 @@ const FeaturesPage: React.FC<FeaturesPageProps> = ({ onNavigateLanding, onNaviga
 
             {/* CTA */}
             <div className="text-center py-12 mt-8">
-              <button onClick={onNavigateLogin} className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-xl 
+              <button onClick={onNavigateLogin} className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg 
                 font-bold text-lg transition-all shadow-xl shadow-indigo-500/50 hover:shadow-2xl hover:shadow-indigo-500/70 hover:translate-y-[-2px]
                 active:scale-95 inline-block group">
                 <span className="flex items-center gap-2">

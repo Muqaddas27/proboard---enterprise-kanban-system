@@ -51,7 +51,7 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
   return (
     <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
-        className="w-full max-w-md rounded-2xl shadow-2xl overflow-hidden animate-in zoom-in-95 fade-in duration-300 modal max-h-[90vh] flex flex-col border"
+        className="w-full max-w-md rounded-lg shadow-2xl overflow-hidden animate-in zoom-in-95 fade-in duration-300 modal max-h-[90vh] flex flex-col border"
         style={{
           background: theme.surfaceBg,
           borderColor: theme.accentBorder,

@@ -92,7 +92,7 @@ const SortableCard: React.FC<SortableCardProps> = ({ card, onClick, cardAccent =
         e.stopPropagation();
         onClick(card);
       }}
-      className="rounded-2xl p-5 shadow-2xl hover:shadow-[0_20px_70px_-15px_rgba(99,102,241,0.5)] transition-all duration-300 cursor-grab active:cursor-grabbing group select-none relative w-full h-52 flex flex-col justify-between overflow-hidden text-white border border-white/30 backdrop-blur-sm hover:scale-105 hover:border-white/50"
+      className="rounded-lg p-5 shadow-2xl hover:shadow-[0_20px_70px_-15px_rgba(99,102,241,0.5)] transition-all duration-300 cursor-grab active:cursor-grabbing group select-none relative w-full h-52 flex flex-col justify-between overflow-hidden text-white border border-white/30 backdrop-blur-sm hover:scale-105 hover:border-white/50"
     >
       {/* Priority Tag - Always at Top */}
       <div className="flex items-center pb-3">
@@ -117,7 +117,7 @@ const SortableCard: React.FC<SortableCardProps> = ({ card, onClick, cardAccent =
       </div>
 
       {/* Footer - Always at Bottom */}
-      <div className="pt-4 border-t border-white/30 flex items-center justify-between flex-shrink-0 backdrop-blur-md bg-white/5 -mx-5 -mb-5 px-5 pb-4 rounded-b-2xl">
+      <div className="pt-4 border-t border-white/30 flex items-center justify-between flex-shrink-0 backdrop-blur-md bg-white/5 -mx-5 -mb-5 px-5 pb-4 rounded-b-lg">
         <div className="flex items-center gap-2">
           {card.description && (
             <svg className="w-4 h-4 text-white/70 group-hover:text-white group-hover:scale-110 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">

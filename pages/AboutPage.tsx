@@ -50,7 +50,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigateLanding, onNavigateAbou
             </div>
 
             <div className="space-y-8">
-              <div className="bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border border-indigo-500/30 rounded-2xl p-8 
+              <div className="bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border border-indigo-500/30 rounded-lg p-8 
                 hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300 hover:translate-y-[-4px]
                 hover:border-indigo-500/50 hover:bg-gradient-to-br hover:from-indigo-600/20 hover:to-purple-600/20"
                 style={{ animation: 'slideInUp 0.6s ease-out 0s both' }}
@@ -61,7 +61,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigateLanding, onNavigateAbou
                 </p>
               </div>
 
-              <div className="bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-500/30 rounded-2xl p-8
+              <div className="bg-gradient-to-br from-purple-600/10 to-pink-600/10 border border-purple-500/30 rounded-lg p-8
                 hover:shadow-xl hover:shadow-purple-500/20 transition-all duration-300 hover:translate-y-[-4px]
                 hover:border-purple-500/50 hover:bg-gradient-to-br hover:from-purple-600/20 hover:to-pink-600/20"
                 style={{ animation: 'slideInUp 0.6s ease-out 0.1s both' }}
@@ -80,7 +80,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigateLanding, onNavigateAbou
                 ].map((stat, i) => (
                   <div 
                     key={i}
-                    className={`bg-gradient-to-br ${stat.gradient} border rounded-2xl p-8 text-center
+                    className={`bg-gradient-to-br ${stat.gradient} border rounded-lg p-8 text-center
                       hover:shadow-xl hover:shadow-indigo-500/20 transition-all duration-300 hover:translate-y-[-4px]`}
                     style={{ animation: `slideInUp 0.6s ease-out ${0.2 + i * 0.1}s both` }}
                   >
@@ -92,7 +92,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ onNavigateLanding, onNavigateAbou
                 ))}
               </div>
 
-              <div className="bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border border-blue-500/30 rounded-2xl p-8
+              <div className="bg-gradient-to-br from-blue-600/10 to-cyan-600/10 border border-blue-500/30 rounded-lg p-8
                 hover:shadow-xl hover:shadow-blue-500/20 transition-all duration-300 hover:translate-y-[-4px]
                 hover:border-blue-500/50 hover:bg-gradient-to-br hover:from-blue-600/20 hover:to-cyan-600/20"
                 style={{ animation: 'slideInUp 0.6s ease-out 0.5s both' }}

@@ -113,7 +113,7 @@ const Dashboard: React.FC = () => {
           
           {/* Stats */}
           <div className="flex flex-col gap-4 items-start lg:items-end">
-            <div className="hidden lg:block bg-white/10 backdrop-blur-xl rounded-2xl shadow-lg border border-white/20 p-6 min-w-fit">
+            <div className="hidden lg:block bg-white/10 backdrop-blur-xl rounded-lg shadow-lg border border-white/20 p-6 min-w-fit">
               <div className="flex items-center gap-6">
                 <div className="flex -space-x-3">
                   {[1, 2, 3].map(i => (
@@ -142,11 +142,11 @@ const Dashboard: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {/* Create New Board Card */}
           <form onSubmit={handleCreate} className="group">
-            <div className="bg-white/10 backdrop-blur-xl border-2 border-dashed border-white/30 hover:border-indigo-400 rounded-2xl p-8 h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:bg-gradient-to-b hover:from-indigo-500/20 to-white/10 cursor-pointer relative overflow-hidden">
+            <div className="bg-white/10 backdrop-blur-xl border-2 border-dashed border-white/30 hover:border-indigo-400 rounded-lg p-8 h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:bg-gradient-to-b hover:from-indigo-500/20 to-white/10 cursor-pointer relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-indigo-500/0 group-hover:from-indigo-500/10 group-hover:to-indigo-500/5 transition-all duration-300" />
               
               <div className="relative text-center">
-                <div className={`w-16 h-16 bg-gradient-to-br ${getAccentClasses()} rounded-xl flex items-center justify-center mb-6 group-hover:${getAccentHoverClasses()} group-hover:scale-110 transition-all duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${getAccentClasses()} rounded-lg flex items-center justify-center mb-6 group-hover:${getAccentHoverClasses()} group-hover:scale-110 transition-all duration-300`}>
                   <svg className="w-7 h-7 text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                   </svg>
@@ -163,13 +163,13 @@ const Dashboard: React.FC = () => {
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) => setNewBoardTitle(e.target.value)}
                   onFocus={(e) => e.target.select()}
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:bg-white/30 focus:border-indigo-400 transition-all text-sm font-bold text-white placeholder-slate-400"
+                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:bg-white/30 focus:border-indigo-400 transition-all text-sm font-bold text-white placeholder-slate-400"
                 />
                 <button
                   type="submit"
                   disabled={isCreating || !newBoardTitle.trim()}
                   onClick={(e) => e.stopPropagation()}
-                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-xl hover:${getAccentHoverClasses()} transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs`}
+                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-lg hover:${getAccentHoverClasses()} transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs`}
                   style={{
                     boxShadow: `0 10px 25px rgba(0, 0, 0, 0.3)`
                   }}
@@ -202,7 +202,7 @@ const Dashboard: React.FC = () => {
               onClick={() => handleBoardClick(board)}
               className="group"
             >
-              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl p-6 h-72 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden relative"
+              <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg p-6 h-72 shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between overflow-hidden relative"
                 style={{
                   animationDelay: `${index * 50}ms`,
                 }}
@@ -213,7 +213,7 @@ const Dashboard: React.FC = () => {
                 {/* Header Section */}
                 <div className="relative">
                   <div className="flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all`}>
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all`}>
                       {board.title.charAt(0).toUpperCase()}
                     </div>
                     <div className="p-2 text-slate-400 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100">
@@ -278,7 +278,7 @@ const Dashboard: React.FC = () => {
         {/* Empty State */}
         {boards.length === 0 && (
           <div className="mt-20 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500/20 rounded-2xl mb-6">
+            <div className="inline-flex items-center justify-center w-16 h-16 bg-indigo-500/20 rounded-lg mb-6">
               <svg className="w-8 h-8 text-indigo-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>

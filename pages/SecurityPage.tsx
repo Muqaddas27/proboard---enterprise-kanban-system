@@ -129,7 +129,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onNavigateLanding, onNaviga
               ].map((section, secIdx) => (
                 <div 
                   key={secIdx}
-                  className={`bg-gradient-to-br ${section.color} rounded-2xl p-8
+                  className={`bg-gradient-to-br ${section.color} rounded-lg p-8
                     hover:shadow-2xl hover:shadow-indigo-500/20 transition-all duration-300 hover:translate-y-[-4px]
                     cursor-pointer group`}
                   style={{ animation: `slideInUp 0.6s ease-out ${secIdx * 0.1}s both` }}
@@ -161,7 +161,7 @@ const SecurityPage: React.FC<SecurityPageProps> = ({ onNavigateLanding, onNaviga
                 ].map((stat, i) => (
                   <div 
                     key={i}
-                    className={`bg-gradient-to-br ${stat.color} border rounded-2xl p-6 text-center
+                    className={`bg-gradient-to-br ${stat.color} border rounded-lg p-6 text-center
                       hover:shadow-xl transition-all duration-300 hover:translate-y-[-4px] group`}
                     style={{ animation: `slideInUp 0.6s ease-out ${0.6 + i * 0.08}s both` }}
                   >

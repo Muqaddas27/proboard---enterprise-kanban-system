@@ -144,7 +144,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
   return (
     <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
-        className="w-full max-w-3xl rounded-2xl shadow-2xl flex flex-col max-h-[90vh] overflow-hidden modal animate-in zoom-in-95 fade-in duration-300 border"
+        className="w-full max-w-3xl rounded-lg shadow-2xl flex flex-col max-h-[90vh] overflow-hidden modal animate-in zoom-in-95 fade-in duration-300 border"
         style={{
           background: theme.surfaceBg,
           borderColor: theme.accentBorder,
@@ -207,7 +207,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                 Description
               </label>
               <textarea
-                className="w-full h-48 border rounded-xl p-4 text-sm font-medium focus:bg-white focus:ring-4 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all resize-none"
+                className="w-full h-48 border rounded-lg p-4 text-sm font-medium focus:bg-white focus:ring-4 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all resize-none"
                 style={{
                   color: theme.textColor,
                   background: theme.inputBg,

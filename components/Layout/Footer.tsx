@@ -30,7 +30,7 @@ const Footer: React.FC<FooterProps> = ({
     <footer className="border-t border-white/10 py-16 px-6 backdrop-blur-xl">
       <div className="max-w-7xl mx-auto">
         {/* Newsletter */}
-        <div className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border border-indigo-500/30 rounded-2xl p-24 mb-16">
+        <div className="bg-gradient-to-r from-indigo-600/20 to-purple-600/20 border border-indigo-500/30 rounded-lg p-24 mb-16">
           <div className="max-w-2xl mx-auto text-center">
             <h3 className="text-3xl font-black mb-2">Stay Updated</h3>
             <p className="text-white/70 font-medium mb-6">Get the latest updates and tips delivered to your inbox</p>
@@ -40,11 +40,11 @@ const Footer: React.FC<FooterProps> = ({
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
-                className="flex-1 px-6 py-3 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-indigo-500 transition"
+                className="flex-1 px-6 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/50 focus:outline-none focus:border-indigo-500 transition"
               />
               <button
                 onClick={handleSubscribe}
-                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/50 active:scale-95"
+                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg font-bold transition-all shadow-lg shadow-indigo-500/50 active:scale-95"
               >
                 {subscribed ? '✓ Subscribed' : 'Subscribe'}
               </button>

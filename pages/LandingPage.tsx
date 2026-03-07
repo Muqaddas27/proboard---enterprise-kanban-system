@@ -68,7 +68,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
               <div className="flex gap-4">
                 <button
                   onClick={onNavigateLogin}
-                  className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-xl font-bold text-lg transition-all shadow-xl shadow-indigo-500/40 active:scale-95 hover:shadow-2xl hover:shadow-indigo-500/60 hover:translate-y-[-2px] flex items-center gap-2 group"
+                  className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg font-bold text-lg transition-all shadow-xl shadow-indigo-500/40 active:scale-95 hover:shadow-2xl hover:shadow-indigo-500/60 hover:translate-y-[-2px] flex items-center gap-2 group"
                 >
                   <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
@@ -77,7 +77,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
                 </button>
                 <button
                   onClick={onNavigatePricing}
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-xl font-bold text-lg transition-all flex items-center gap-2 group backdrop-blur-xl hover:translate-y-[-2px]"
+                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-lg font-bold text-lg transition-all flex items-center gap-2 group backdrop-blur-xl hover:translate-y-[-2px]"
                 >
                   <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M8.433 7.418c.155-.103.346-.196.567-.267.232-.074.564-.11.857-.11h.667c.288 0 .658.088.86.26.203.174.38.458.38.920 0 .449-.13.798-.386 1.02-.256.22-.641.35-1.085.35-.857 0-1.554-.535-1.894-1.466zm5.835.75a6 6 0 00-1.015-5.456 6 6 0 00-5.4-2.56 6 6 0 00-5.4 2.56 6 6 0 000 8.912 6 6 0 005.4 2.56 6.002 6.002 0 003.803-1.257l2.905 2.906a1 1 0 001.414-1.414l-2.906-2.905A5.988 5.988 0 0014.268 8.168z" />
@@ -121,15 +121,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
                   {/* Column 1: To Do */}
                   <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite' }}>
                     <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">To Do</h3>
-                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl p-3 h-14 shadow-2xl shadow-indigo-500/50 flex flex-col justify-between border border-indigo-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg p-3 h-14 shadow-2xl shadow-indigo-500/50 flex flex-col justify-between border border-indigo-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Design</p>
                       <p className="text-[9px] text-indigo-100 leading-tight font-semibold">Homepage</p>
                     </div>
-                    <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl p-3 h-14 shadow-2xl shadow-purple-500/50 flex flex-col justify-between border border-purple-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-3 h-14 shadow-2xl shadow-purple-500/50 flex flex-col justify-between border border-purple-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">API Setup</p>
                       <p className="text-[9px] text-purple-100 leading-tight font-semibold">Backend</p>
                     </div>
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-3 h-14 shadow-2xl shadow-blue-500/40 flex flex-col justify-between opacity-90 border border-blue-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 h-14 shadow-2xl shadow-blue-500/40 flex flex-col justify-between opacity-90 border border-blue-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Research</p>
                       <p className="text-[9px] text-blue-100 leading-tight font-semibold">Market</p>
                     </div>
@@ -138,15 +138,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
                   {/* Column 2: In Progress */}
                   <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite', animationDelay: '0.2s' }}>
                     <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">Progress</h3>
-                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-xl p-3 h-14 shadow-2xl shadow-cyan-500/50 flex flex-col justify-between border border-cyan-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg p-3 h-14 shadow-2xl shadow-cyan-500/50 flex flex-col justify-between border border-cyan-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Dev</p>
                       <p className="text-[9px] text-cyan-100 leading-tight font-semibold">Frontend</p>
                     </div>
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-3 h-14 shadow-2xl shadow-blue-500/50 flex flex-col justify-between border border-blue-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 h-14 shadow-2xl shadow-blue-500/50 flex flex-col justify-between border border-blue-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Database</p>
                       <p className="text-[9px] text-blue-100 leading-tight font-semibold">Schema</p>
                     </div>
-                    <div className="bg-gradient-to-br from-sky-500 to-sky-600 rounded-xl p-3 h-14 shadow-2xl shadow-sky-500/40 flex flex-col justify-between opacity-90 border border-sky-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-sky-500 to-sky-600 rounded-lg p-3 h-14 shadow-2xl shadow-sky-500/40 flex flex-col justify-between opacity-90 border border-sky-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Testing</p>
                       <p className="text-[9px] text-sky-100 leading-tight font-semibold">QA</p>
                     </div>
@@ -155,15 +155,15 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
                   {/* Column 3: Done */}
                   <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite', animationDelay: '0.4s' }}>
                     <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">Done</h3>
-                    <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl p-3 h-14 shadow-2xl shadow-emerald-500/50 flex flex-col justify-between border border-emerald-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg p-3 h-14 shadow-2xl shadow-emerald-500/50 flex flex-col justify-between border border-emerald-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Deploy</p>
                       <p className="text-[9px] text-emerald-100 leading-tight font-semibold">v1.0</p>
                     </div>
-                    <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-xl p-3 h-14 shadow-2xl shadow-green-500/50 flex flex-col justify-between border border-green-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-3 h-14 shadow-2xl shadow-green-500/50 flex flex-col justify-between border border-green-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Monitor</p>
                       <p className="text-[9px] text-green-100 leading-tight font-semibold">Live</p>
                     </div>
-                    <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-xl p-3 h-14 shadow-2xl shadow-teal-500/40 flex flex-col justify-between opacity-90 border border-teal-400/30 hover:scale-110 transition-transform">
+                    <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg p-3 h-14 shadow-2xl shadow-teal-500/40 flex flex-col justify-between opacity-90 border border-teal-400/30 hover:scale-110 transition-transform">
                       <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Feedback</p>
                       <p className="text-[9px] text-teal-100 leading-tight font-semibold">Review</p>
                     </div>
@@ -180,10 +180,10 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
               </div>
 
               {/* Floating Feature Badges */}
-              <div className="absolute -top-16 right-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(99,102,241,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md">
+              <div className="absolute -top-16 right-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(99,102,241,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md">
                 ✨ AI Powered
               </div>
-              <div className="absolute -bottom-16 left-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(236,72,153,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md" style={{ animationDelay: '0.3s' }}>
+              <div className="absolute -bottom-16 left-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(236,72,153,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md" style={{ animationDelay: '0.3s' }}>
                 🚀 Lightning Fast
               </div>
             </div>
@@ -289,7 +289,7 @@ const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAb
               <button
                 onClick={onNavigateLogin}
                 className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 
-                  rounded-xl font-bold text-lg transition-all shadow-2xl shadow-indigo-500/50 active:scale-95 
+                  rounded-lg font-bold text-lg transition-all shadow-2xl shadow-indigo-500/50 active:scale-95 
                   hover:shadow-2xl hover:shadow-indigo-500/70 hover:translate-y-[-2px] inline-block"
               >
                 Start Free — No credit card required
