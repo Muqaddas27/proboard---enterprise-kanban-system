@@ -142,7 +142,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
+    <div className="fixed inset-0 z-[450] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
         className="w-full max-w-3xl rounded-lg shadow-2xl flex flex-col max-h-[90vh] overflow-hidden modal animate-in zoom-in-95 fade-in duration-300 border"
         style={{
@@ -152,6 +152,8 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
           ['--accent-muted' as any]: theme.accentMuted,
           ['--accent-ring' as any]: theme.accentRing,
           ['--accent-soft' as any]: theme.accentSoft,
+          ['--text-primary' as any]: theme.textColor,
+          ['--text-muted' as any]: theme.textMuted,
         }}
       >
         {/* Header */}
@@ -164,9 +166,11 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
         >
           <div className="flex-1 mr-4">
             <input
-              className="text-2xl font-bold w-full outline-none focus:ring-2 focus:ring-[var(--accent-ring)] focus:bg-[var(--accent-muted)] rounded-lg px-3 py-2 transition-all -ml-3"
+              className="display-title text-2xl font-semibold w-full outline-none focus:ring-2 focus:ring-[var(--accent-ring)] rounded-lg px-3 py-2 transition-all -ml-3 border"
               style={{
                 color: theme.textColor,
+                background: theme.inputBg,
+                borderColor: theme.accentBorder,
               }}
               placeholder="Task title..."
               value={title}
@@ -186,7 +190,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
           </div>
           <button 
             onClick={onClose} 
-            className="p-2 text-slate-400 hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-all flex-shrink-0"
+            className="p-2 text-[color:var(--text-muted)] hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-all flex-shrink-0"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -207,7 +211,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                 Description
               </label>
               <textarea
-                className="w-full h-48 border rounded-lg p-4 text-sm font-medium focus:bg-white focus:ring-4 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all resize-none"
+                className="w-full h-48 border rounded-lg p-4 text-sm font-medium focus:bg-[var(--accent-muted)] focus:ring-4 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all resize-none"
                 style={{
                   color: theme.textColor,
                   background: theme.inputBg,
@@ -238,7 +242,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                   }}
                 >
                   {comments.map(c => (
-                    <div key={c.id} className="flex gap-3 items-start pb-3 border-b border-slate-200 last:border-b-0">
+                    <div key={c.id} className="flex gap-3 items-start pb-3 border-b border-slate-200/70 last:border-b-0">
                       <div
                         className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center text-xs font-bold text-white"
                         style={{ background: theme.accentStrong }}
@@ -248,7 +252,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                       <div className="flex-1 min-w-0">
                         <p className="text-xs font-bold" style={{ color: theme.textColor }}>{c.author}</p>
                         <p className="text-xs mt-1 break-words" style={{ color: theme.textMuted }}>{c.text}</p>
-                        <p className="text-xs text-slate-400 mt-1">{new Date(c.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
+                        <p className="text-xs text-[color:var(--text-muted)] mt-1">{new Date(c.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}</p>
                       </div>
                     </div>
                   ))}
@@ -266,7 +270,7 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                   </div>
                   <div className="flex-1 flex gap-2">
                     <input
-                      className="flex-1 border rounded-lg px-4 py-2 text-sm font-medium outline-none focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] focus:bg-white transition-all"
+                      className="flex-1 border rounded-lg px-4 py-2 text-sm font-medium outline-none focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] focus:bg-[var(--accent-muted)] transition-all"
                       style={{
                         color: theme.textColor,
                         background: theme.inputBg,
@@ -303,19 +307,19 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                 {Object.values(Priority).map(p => {
                   const isSelected = priority === p;
                   const priorityColors: Record<string, { bg: string; text: string; border: string }> = {
-                    [Priority.HIGH]: { bg: '#fecaca', text: '#dc2626', border: '#ef4444' },
-                    [Priority.MEDIUM]: { bg: '#fef3c7', text: '#92400e', border: '#f59e0b' },
-                    [Priority.LOW]: { bg: '#d1fae5', text: '#065f46', border: '#10b981' }
+                    [Priority.HIGH]: { bg: 'rgba(239, 68, 68, 0.18)', text: '#fda4af', border: '#fb7185' },
+                    [Priority.MEDIUM]: { bg: 'rgba(245, 158, 11, 0.2)', text: '#fcd34d', border: '#f59e0b' },
+                    [Priority.LOW]: { bg: 'rgba(16, 185, 129, 0.2)', text: '#6ee7b7', border: '#10b981' }
                   };
-                  const colors = priorityColors[p] || { bg: '#f3f4f6', text: '#4b5563', border: '#d1d5db' };
+                  const colors = priorityColors[p] || { bg: theme.inputBg, text: theme.textMuted, border: theme.accentBorder };
                   return (
                     <button
                       key={p}
                       onClick={() => setPriority(p)}
                       className="px-4 py-3 rounded-lg text-sm font-bold border-2 transition-all text-left"
                       style={{
-                        borderColor: isSelected ? colors.border : '#e5e7eb',
-                        background: isSelected ? colors.bg : '#ffffff',
+                        borderColor: isSelected ? colors.border : theme.accentBorder,
+                        background: isSelected ? colors.bg : theme.inputBg,
                         color: isSelected ? colors.text : theme.textMuted,
                       }}
                     >
@@ -432,7 +436,13 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
                   <label className="block text-xs font-bold" style={{ color: theme.textColor }}>Select Team Members</label>
                   <div className="space-y-2">
                     {teamMembers.map(member => (
-                      <label key={member.id} className="flex items-center gap-3 p-2 hover:bg-white rounded-lg cursor-pointer transition-colors">
+                      <label
+                        key={member.id}
+                        className="flex items-center gap-3 p-2 rounded-lg cursor-pointer transition-colors"
+                        style={{ ['--accent-soft' as any]: theme.accentSoft }}
+                        onMouseEnter={(e) => (e.currentTarget.style.background = theme.accentSoft)}
+                        onMouseLeave={(e) => (e.currentTarget.style.background = 'transparent')}
+                      >
                         <input 
                           type="checkbox"
                           checked={selectedMembers.includes(member.id)}
@@ -479,10 +489,15 @@ const CardModal: React.FC<CardModalProps> = ({ card, onClose }) => {
             </div>
 
             {/* Danger Zone */}
-            <div className="pt-4 border-t border-slate-200">
+            <div className="pt-4 border-t" style={{ borderColor: theme.accentBorder }}>
               <button 
                 onClick={handleDelete}
-                className="w-full flex items-center gap-2 px-4 py-3 bg-rose-50 hover:bg-rose-100 rounded-lg text-sm text-rose-700 font-bold transition-colors group border border-rose-200 active:scale-95"
+                className="w-full flex items-center gap-2 px-4 py-3 rounded-lg text-sm font-bold transition-colors group border active:scale-95"
+                style={{
+                  background: 'rgba(225, 29, 72, 0.16)',
+                  borderColor: 'rgba(251, 113, 133, 0.45)',
+                  color: '#fecdd3',
+                }}
               >
                 <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />

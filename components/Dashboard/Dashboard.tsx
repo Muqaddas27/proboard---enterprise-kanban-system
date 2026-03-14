@@ -60,7 +60,7 @@ const Dashboard: React.FC = () => {
   const getAccentHoverClasses = () => currentWallpaper.cardAccentHover;
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br ${currentWallpaper.gradient} text-white overflow-hidden relative`}>
+    <div className={`min-h-screen bg-gradient-to-br ${currentWallpaper.gradient} text-white overflow-x-hidden relative`}>
       {/* Fixed Background */}
       <div key={wallpaperKey} className="fixed inset-0">
         {/* Image Background */}
@@ -145,14 +145,14 @@ const Dashboard: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-xl border-2 border-dashed border-white/30 hover:border-indigo-400 rounded-lg p-8 h-72 flex flex-col items-center justify-center transition-all duration-300 hover:shadow-lg hover:bg-gradient-to-b hover:from-indigo-500/20 to-white/10 cursor-pointer relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-indigo-500/0 group-hover:from-indigo-500/10 group-hover:to-indigo-500/5 transition-all duration-300" />
               
-              <div className="relative text-center">
+              <div className="relative text-center flex flex-col items-center">
                 <div className={`w-16 h-16 bg-gradient-to-br ${getAccentClasses()} rounded-lg flex items-center justify-center mb-6 group-hover:${getAccentHoverClasses()} group-hover:scale-110 transition-all duration-300`}>
                   <svg className="w-7 h-7 text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                   </svg>
                 </div>
-                <h3 className="text-lg font-black text-white mb-2">New Board</h3>
-                <p className="text-xs text-slate-300 font-bold mb-6">Create a new workspace</p>
+                <h3 className="text-lg font-black text-white mb-2 leading-none">New Board</h3>
+                <p className="text-xs text-slate-300 font-bold mb-6 leading-none">Create a new workspace</p>
               </div>
 
               <div className="w-full space-y-3 relative">
@@ -163,13 +163,13 @@ const Dashboard: React.FC = () => {
                   onClick={(e) => e.stopPropagation()}
                   onChange={(e) => setNewBoardTitle(e.target.value)}
                   onFocus={(e) => e.target.select()}
-                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:bg-white/30 focus:border-indigo-400 transition-all text-sm font-bold text-white placeholder-slate-400"
+                  className="w-full px-4 py-3 bg-white/20 backdrop-blur-sm border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400/50 focus:bg-white/30 focus:border-indigo-400 transition-all text-sm font-bold text-white placeholder-slate-200"
                 />
                 <button
                   type="submit"
                   disabled={isCreating || !newBoardTitle.trim()}
                   onClick={(e) => e.stopPropagation()}
-                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-lg hover:${getAccentHoverClasses()} transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs`}
+                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-lg hover:${getAccentHoverClasses()} transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs leading-none`}
                   style={{
                     boxShadow: `0 10px 25px rgba(0, 0, 0, 0.3)`
                   }}
@@ -211,31 +211,31 @@ const Dashboard: React.FC = () => {
                 <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-indigo-500/20 to-indigo-500/0 rounded-full -mr-20 -mt-20 group-hover:scale-120 transition-transform duration-500 opacity-40" />
 
                 {/* Header Section */}
-                <div className="relative">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black text-xl shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all`}>
-                      {board.title.charAt(0).toUpperCase()}
-                    </div>
-                    <div className="p-2 text-slate-400 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100">
-                      <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                    </div>
+                <div className="relative mb-3">
+                  <div className="absolute top-0 right-0 p-2 text-slate-200 group-hover:text-white transition-colors opacity-0 group-hover:opacity-100 flex items-center justify-center">
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
                   </div>
 
                   {/* Title and Description */}
-                  <h3 className="text-xl font-black text-white mb-1 tracking-tight group-hover:text-white transition-colors line-clamp-2">
-                    {board.title}
-                  </h3>
-                  <p className="text-xs text-slate-400 font-medium">Active • Updated today</p>
+                  <div className="flex flex-col items-center text-center pt-1">
+                    <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black text-xl leading-none shadow-lg group-hover:scale-110 group-hover:rotate-3 transition-all mb-3`}>
+                      {board.title.charAt(0).toUpperCase()}
+                    </div>
+                    <h3 className="display-title text-xl font-semibold text-white mb-1 tracking-tight group-hover:text-white transition-colors line-clamp-2 leading-none text-center">
+                      {board.title}
+                    </h3>
+                    <p className="text-xs text-slate-200 font-medium leading-none text-center">Active • Updated today</p>
+                  </div>
                 </div>
 
                 {/* Stats */}
                 <div className="relative">
-                  <div className="grid grid-cols-2 gap-2 mb-4">
-                    <div className="bg-white/10 rounded-lg p-3 border border-white/20">
-                      <p className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">Columns</p>
-                      <p className="text-lg font-black mt-1" style={{
+                  <div className="grid grid-cols-2 gap-2 mb-3">
+                    <div className="bg-white/10 rounded-lg p-2.5 border border-white/20 min-h-[68px] flex flex-col items-center justify-center text-center">
+                      <p className="text-[9px] font-bold text-slate-300 uppercase tracking-wider leading-none">Columns</p>
+                      <p className="text-lg font-black mt-1 leading-none" style={{
                         backgroundImage: `linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to))`,
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
@@ -245,23 +245,23 @@ const Dashboard: React.FC = () => {
                         {board.lists.length}
                       </p>
                     </div>
-                    <div className="bg-white/10 rounded-lg p-3 border border-white/20">
-                      <p className="text-[10px] font-bold text-slate-300 uppercase tracking-wider">Tasks</p>
-                      <p className="text-lg font-black text-emerald-300 mt-1">
+                    <div className="bg-white/10 rounded-lg p-2.5 border border-white/20 min-h-[68px] flex flex-col items-center justify-center text-center">
+                      <p className="text-[9px] font-bold text-slate-300 uppercase tracking-wider leading-none">Tasks</p>
+                      <p className="text-lg font-black text-emerald-300 mt-1 leading-none">
                         {board.lists.reduce((acc, l) => acc + l.cards.length, 0)}
                       </p>
                     </div>
                   </div>
 
                   {/* Divider */}
-                  <div className="border-t border-white/20 pt-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">Collaborators</span>
-                      <div className="flex -space-x-2">
+                  <div className="border-t border-white/20 pt-3">
+                    <div className="flex items-center justify-center gap-3">
+                      <span className="text-[10px] font-bold text-slate-200 uppercase tracking-wider text-center">Collaborators</span>
+                      <div className="flex items-center justify-center gap-1.5">
                         {[1, 2].map(i => (
                           <div
                             key={i}
-                            className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 border-2 border-white/20 flex items-center justify-center text-xs font-bold text-white shadow-md hover:scale-110 transition-transform"
+                            className="w-7 h-7 rounded-full bg-gradient-to-br from-indigo-400 to-indigo-600 border-2 border-white/60 flex items-center justify-center text-xs font-bold leading-none text-white shadow-md hover:scale-110 transition-transform"
                           >
                             {String.fromCharCode(64 + i)}
                           </div>

@@ -109,6 +109,18 @@ const KanbanBoard: React.FC = () => {
   // Helper to get accent colors for UI elements based on wallpaper
   const getAccentClasses = () => currentWallpaper.cardAccent;
   const getAccentHoverClasses = () => currentWallpaper.cardAccentHover;
+  const getAccentColor = () => {
+    if (currentWallpaper.cardAccent.includes('blue')) return '#60a5fa';
+    if (currentWallpaper.cardAccent.includes('purple')) return '#c4b5fd';
+    if (currentWallpaper.cardAccent.includes('cyan')) return '#67e8f9';
+    if (currentWallpaper.cardAccent.includes('emerald')) return '#6ee7b7';
+    if (currentWallpaper.cardAccent.includes('amber')) return '#fcd34d';
+    if (currentWallpaper.cardAccent.includes('fuchsia')) return '#f5a3ff';
+    if (currentWallpaper.cardAccent.includes('sky')) return '#7dd3fc';
+    if (currentWallpaper.cardAccent.includes('rose')) return '#fda4af';
+    if (currentWallpaper.cardAccent.includes('slate')) return '#cbd5e1';
+    return '#a5b4fc';
+  };
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 5 } }),
@@ -205,9 +217,9 @@ const KanbanBoard: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col h-[calc(100vh-64px)] bg-gradient-to-br text-white">
-      {/* Fixed Background */}
-      <div key={wallpaperKey} className="fixed inset-0 top-16">
+    <div className="relative flex flex-col min-h-[calc(100vh-64px)] overflow-x-hidden text-white">
+      {/* Board Background */}
+      <div key={wallpaperKey} className="absolute inset-0">
         {/* Image Background */}
         <img
           ref={backgroundImageRef}
@@ -239,8 +251,8 @@ const KanbanBoard: React.FC = () => {
       
       <div className="relative z-10 overflow-visible">
       {/* Board Header */}
-      <div className="h-20 px-8 flex items-center justify-between bg-white/5 backdrop-blur-xl border-b border-white/10 shadow-sm relative z-[200] overflow-visible">
-        <div className="flex items-center gap-6 flex-1">
+      <div className={`min-h-[5.75rem] px-6 md:px-8 py-4 flex items-center justify-between bg-gradient-to-r ${currentWallpaper.gradient} border-b border-white/20 shadow-sm sticky top-0 z-[220] overflow-visible`}>
+        <div className="flex items-center gap-4 md:gap-6 flex-1 min-w-0">
           <button 
             onClick={() => setActiveBoard(null)}
             className="p-2.5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white transition-all active:scale-90 group"
@@ -251,12 +263,14 @@ const KanbanBoard: React.FC = () => {
             </svg>
           </button>
           
-          <div className="flex items-center gap-3 flex-1">
-            <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black`}>
+          <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
+            <div className={`w-11 h-11 md:w-12 md:h-12 rounded-lg bg-gradient-to-br ${getAccentClasses()} flex items-center justify-center text-white font-black text-base md:text-lg shrink-0`}>
               {activeBoard.title.charAt(0).toUpperCase()}
             </div>
-            <div className="flex flex-col min-w-0">
-              <h2 className="text-lg font-black text-white leading-tight truncate">{activeBoard.title}</h2>
+            <div className="flex flex-col min-w-0 flex-1">
+              <h2 className="display-title text-2xl md:text-3xl font-semibold text-white leading-[1.05] tracking-[-0.02em] break-words line-clamp-2 max-w-3xl">
+                {activeBoard.title}
+              </h2>
               <div className="flex items-center gap-2 mt-1">
                 <span className="text-xs font-bold text-emerald-300 bg-emerald-500/20 px-2.5 py-0.5 rounded-full border border-emerald-500/30">
                   ● Active
@@ -292,7 +306,7 @@ const KanbanBoard: React.FC = () => {
             <button
               ref={filterButtonRef}
               onClick={() => setShowFilters(!showFilters)}
-              className="flex items-center gap-2 px-5 py-2.5 bg-white text-slate-800 hover:bg-slate-100 text-sm font-bold rounded-lg transition-all active:scale-95 border border-slate-200"
+              className="flex items-center gap-2 px-5 py-2.5 bg-amber-400 text-slate-900 hover:bg-amber-300 text-sm font-bold rounded-lg transition-all active:scale-95 border border-amber-300"
               style={{ zIndex: 10001, position: 'relative' }}
               title="Filter tasks"
             >
@@ -306,10 +320,18 @@ const KanbanBoard: React.FC = () => {
               <div
                 ref={filterDropdownRef}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute top-full mt-2 left-0 w-64 max-h-[70vh] overflow-y-auto bg-white border border-slate-200 rounded-lg shadow-2xl p-3"
-                style={{ zIndex: 9999, position: 'absolute' }}
+                className={`absolute top-full mt-2 left-0 w-64 max-h-[70vh] overflow-y-auto bg-gradient-to-br ${currentWallpaper.gradient} border border-white/25 rounded-lg shadow-2xl p-3`}
+                style={{
+                  zIndex: 9999,
+                  position: 'absolute',
+                  borderColor: `${getAccentColor()}88`,
+                  boxShadow: `0 20px 40px -16px ${getAccentColor()}77`,
+                  ['--accent' as any]: getAccentColor(),
+                  ['--accent-soft' as any]: `${getAccentColor()}22`
+                }}
               >
-                <p className="text-xs font-bold text-slate-500 uppercase tracking-wider px-2 pb-2">Task Filters</p>
+                <div className="absolute inset-0 bg-slate-950/35 rounded-lg pointer-events-none" />
+                <p className="relative z-10 text-xs font-bold text-white/80 uppercase tracking-wider px-2 pb-2">Task Filters</p>
                 <div className="space-y-2">
                   {filterOptions.map((filter) => (
                     <button
@@ -320,8 +342,8 @@ const KanbanBoard: React.FC = () => {
                       }}
                       className={`w-full px-3 py-2.5 rounded-lg text-sm font-bold transition-all text-left flex items-center gap-3 ${
                         filterPriority === filter.key
-                          ? `bg-slate-900 text-white border border-slate-900`
-                          : `bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200`
+                          ? `bg-black/45 text-white border border-[var(--accent)]`
+                          : `bg-black/25 text-white/90 hover:bg-black/40 border border-white/20 hover:border-[var(--accent)]`
                       }`}
                     >
                       <span className={`w-2.5 h-2.5 rounded-full ${
@@ -359,7 +381,7 @@ const KanbanBoard: React.FC = () => {
       {/* Board Container */}
       <div className="flex-1 min-h-0">
         {/* Board Surface */}
-        <div className="w-full overflow-x-auto overflow-y-hidden p-6 kanban-scroll relative z-0 min-h-0">
+        <div className="w-full overflow-x-auto overflow-y-visible p-6 kanban-scroll relative z-0 min-h-0">
         <DndContext
           sensors={sensors}
           collisionDetection={closestCorners}

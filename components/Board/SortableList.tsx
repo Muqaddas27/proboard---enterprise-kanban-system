@@ -181,7 +181,7 @@ const SortableList: React.FC<SortableListProps> = ({ list, onCardClick, cardAcce
         {isEditingTitle ? (
           <input
             autoFocus
-            className="text-sm font-black text-white px-3 py-2 rounded-lg border-2 outline-none flex-1 shadow-inner placeholder-slate-300 focus:border-[var(--accent-strong)] focus:ring-1 focus:ring-[var(--accent-strong)]"
+            className="display-title text-lg font-semibold text-white px-3 py-2 rounded-lg border-2 outline-none flex-1 shadow-inner placeholder-slate-300 focus:border-[var(--accent-strong)] focus:ring-1 focus:ring-[var(--accent-strong)]"
             style={{
               background: getHeaderHoverBg(),
               borderColor: getHeaderBorder(),
@@ -202,7 +202,7 @@ const SortableList: React.FC<SortableListProps> = ({ list, onCardClick, cardAcce
             }}
           >
             <h3
-              className="text-sm font-black text-white truncate tracking-tight hover:text-[var(--accent)] transition-colors"
+              className="display-title text-lg font-semibold text-white truncate tracking-tight hover:text-[var(--accent)] transition-colors"
               style={{ ['--accent' as any]: getAccentColor() }}
             >
               {list.title}

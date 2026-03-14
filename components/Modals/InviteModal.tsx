@@ -53,7 +53,7 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
+    <div className="fixed inset-0 z-[450] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
         className="w-full max-w-md rounded-lg shadow-2xl overflow-hidden modal animate-in zoom-in-95 fade-in duration-300 max-h-[90vh] flex flex-col border"
         style={{
@@ -62,6 +62,8 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
           ['--accent-strong' as any]: theme.accentStrong,
           ['--accent-muted' as any]: theme.accentMuted,
           ['--accent-ring' as any]: theme.accentRing,
+          ['--text-primary' as any]: theme.textColor,
+          ['--text-muted' as any]: theme.textMuted,
         }}
       >
         {/* Header */}
@@ -73,12 +75,12 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
           }}
         >
           <div>
-            <h3 className="text-lg font-bold text-slate-900">Invite Team Member</h3>
-            <p className="text-sm text-slate-500 mt-1">Send an invitation to add a new member to your workspace</p>
+            <h3 className="text-lg font-bold text-[color:var(--text-primary)]">Invite Team Member</h3>
+            <p className="text-sm text-[color:var(--text-muted)] mt-1">Send an invitation to add a new member to your workspace</p>
           </div>
           <button 
             onClick={onClose} 
-            className="p-2 text-slate-400 hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-all flex-shrink-0"
+            className="p-2 text-[color:var(--text-muted)] hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-all flex-shrink-0"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -89,7 +91,7 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
         {/* Content */}
         <div className="p-8 space-y-4 overflow-y-auto flex-1">
           <div>
-            <label className="block text-sm font-bold text-slate-900 mb-2">Email Address</label>
+            <label className="block text-sm font-bold text-[color:var(--text-primary)] mb-2">Email Address</label>
             <input
               type="email"
               placeholder="colleague@company.com"
@@ -97,13 +99,13 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
               onChange={(e) => setEmail(e.target.value)}
               onKeyPress={handleKeyPress}
               autoFocus
-              className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all font-medium text-slate-900 placeholder-slate-400"
+              className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all font-medium text-[color:var(--text-primary)] placeholder:text-slate-500"
               style={{
                 background: theme.inputBg,
                 borderColor: theme.accentBorder,
               }}
             />
-            <p className="text-xs text-slate-500 mt-2">Make sure the email is correct. They'll receive an invitation to join.</p>
+            <p className="text-xs text-[color:var(--text-muted)] mt-2">Make sure the email is correct. They'll receive an invitation to join.</p>
           </div>
         </div>
 
@@ -117,7 +119,7 @@ const InviteModal: React.FC<InviteModalProps> = ({ onClose }) => {
         >
           <button 
             onClick={onClose}
-            className="px-5 py-2.5 text-sm font-bold text-slate-600 hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
+            className="px-5 py-2.5 text-sm font-bold text-[color:var(--text-muted)] hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
           >
             Cancel
           </button>

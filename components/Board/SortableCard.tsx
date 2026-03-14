@@ -92,10 +92,12 @@ const SortableCard: React.FC<SortableCardProps> = ({ card, onClick, cardAccent =
         e.stopPropagation();
         onClick(card);
       }}
-      className="rounded-lg p-5 shadow-2xl hover:shadow-[0_20px_70px_-15px_rgba(99,102,241,0.5)] transition-all duration-300 cursor-grab active:cursor-grabbing group select-none relative w-full h-52 flex flex-col justify-between overflow-hidden text-white border border-white/30 backdrop-blur-sm hover:scale-105 hover:border-white/50"
+      className="rounded-lg p-5 shadow-2xl hover:shadow-[0_20px_70px_-15px_rgba(99,102,241,0.5)] transition-all duration-300 cursor-grab active:cursor-grabbing group select-none relative w-full h-52 flex flex-col justify-between overflow-hidden text-white border border-white/30 backdrop-blur-sm hover:scale-[1.02] hover:border-white/50"
     >
+      <div className="absolute inset-0 bg-black/12 group-hover:bg-black/24 transition-colors pointer-events-none" />
+
       {/* Priority Tag - Always at Top */}
-      <div className="flex items-center pb-3">
+      <div className="relative z-10 flex items-center pb-3">
         <span className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-[10px] font-extrabold uppercase tracking-widest border ${config.pillBg} ${config.pillText} ${config.pillBorder}`}>
           <span className={`w-2 h-2 rounded-full ${config.dot} shadow-sm`} />
           {card.priority}
@@ -103,21 +105,21 @@ const SortableCard: React.FC<SortableCardProps> = ({ card, onClick, cardAccent =
       </div>
       
       {/* Title and Description - Middle Section */}
-      <div className="flex-1 min-h-0 overflow-hidden">
-        <h4 className="text-base font-extrabold text-white mb-2 leading-tight group-hover:scale-105 transition-transform line-clamp-2 drop-shadow-md">
+      <div className="relative z-10 flex-1 min-h-0 overflow-hidden">
+        <h4 className="display-title text-base font-semibold text-white mb-2 leading-tight transition-colors line-clamp-2 drop-shadow-[0_2px_8px_rgba(0,0,0,0.55)]">
           {card.title}
         </h4>
         
         {/* Description */}
         {card.description && (
-          <p className="text-sm text-white/90 line-clamp-2 leading-relaxed font-semibold group-hover:text-white transition-colors">
+          <p className="text-sm text-white/95 line-clamp-2 leading-relaxed font-semibold transition-colors drop-shadow-[0_2px_6px_rgba(0,0,0,0.45)]">
             {card.description}
           </p>
         )}
       </div>
 
       {/* Footer - Always at Bottom */}
-      <div className="pt-4 border-t border-white/30 flex items-center justify-between flex-shrink-0 backdrop-blur-md bg-white/5 -mx-5 -mb-5 px-5 pb-4 rounded-b-lg">
+      <div className="relative z-10 pt-4 border-t border-white/30 flex items-center justify-between flex-shrink-0 backdrop-blur-md bg-white/5 -mx-5 -mb-5 px-5 pb-4 rounded-b-lg">
         <div className="flex items-center gap-2">
           {card.description && (
             <svg className="w-4 h-4 text-white/70 group-hover:text-white group-hover:scale-110 transition-all" fill="none" viewBox="0 0 24 24" stroke="currentColor">

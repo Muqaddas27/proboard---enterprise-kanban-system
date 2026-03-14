@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({
   onNavigateSecurity
 }) => {
   return (
-    <nav className="px-6 py-4 border-b border-white/10 backdrop-blur-xl fixed top-0 left-0 right-0 z-[100] bg-slate-900/95">
+    <nav className="px-6 py-4 border-b border-blue-400/20 fixed top-0 left-0 right-0 z-[100] bg-gradient-to-r from-slate-950 via-blue-950 to-indigo-950">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo */}
         <button onClick={onNavigateLanding} className="flex items-center gap-3 hover:opacity-80 transition group">

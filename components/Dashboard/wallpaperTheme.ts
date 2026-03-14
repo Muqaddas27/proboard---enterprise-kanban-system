@@ -43,15 +43,15 @@ const buildTheme = (config: AccentConfig): AccentTheme => {
   return {
     accent: config.accent,
     accentStrong: config.accentStrong,
-    accentBorder: `rgba(${rgb}, 0.35)`,
-    accentMuted: `rgba(${rgb}, 0.08)`,
-    accentSoft: `rgba(${rgb}, 0.14)`,
+    accentBorder: `rgba(${rgb}, 0.36)`,
+    accentMuted: 'rgba(15, 23, 42, 0.6)',
+    accentSoft: `rgba(${rgb}, 0.16)`,
     accentRing: `rgba(${rgb}, 0.45)`,
-    headerBg: `linear-gradient(90deg, rgba(${rgb}, 0.2), rgba(255, 255, 255, 0))`,
-    surfaceBg: `linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(${rgb}, 0.1))`,
-    inputBg: `rgba(${rgb}, 0.08)`,
-    textColor: '#1e293b',
-    textMuted: '#64748b',
+    headerBg: `linear-gradient(110deg, rgba(${rgb}, 0.24) 0%, rgba(15, 23, 42, 0.95) 70%)`,
+    surfaceBg: 'linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(2, 6, 23, 0.95) 100%)',
+    inputBg: 'rgba(15, 23, 42, 0.78)',
+    textColor: '#e2e8f0',
+    textMuted: '#94a3b8',
   };
 };
 

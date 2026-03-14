@@ -49,7 +49,7 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
   };
 
   return (
-    <div className="fixed inset-0 z-[250] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
+    <div className="fixed inset-0 z-[450] flex items-center justify-center p-4 bg-black/60 backdrop-blur-xl">
       <div
         className="w-full max-w-md rounded-lg shadow-2xl overflow-hidden animate-in zoom-in-95 fade-in duration-300 modal max-h-[90vh] flex flex-col border"
         style={{
@@ -59,6 +59,8 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
           ['--accent-muted' as any]: theme.accentMuted,
           ['--accent-ring' as any]: theme.accentRing,
           ['--accent-soft' as any]: theme.accentSoft,
+          ['--text-primary' as any]: theme.textColor,
+          ['--text-muted' as any]: theme.textMuted,
         }}
       >
         {/* Header */}
@@ -76,11 +78,11 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
             >
               {board.title.charAt(0).toUpperCase()}
             </div>
-            <h3 className="text-lg font-bold text-slate-900">Board Settings</h3>
+            <h3 className="text-lg font-bold text-[color:var(--text-primary)]">Board Settings</h3>
           </div>
           <button 
             onClick={onClose} 
-            className="p-2 text-slate-400 hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-colors"
+            className="p-2 text-[color:var(--text-muted)] hover:text-[var(--accent-strong)] hover:bg-[var(--accent-muted)] rounded-full transition-colors"
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
@@ -92,7 +94,7 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
         <div className="p-8 space-y-8 overflow-y-auto flex-1">
           {/* Board Name Section */}
           <div className="space-y-3">
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">Board Name</label>
+            <label className="block text-xs font-bold text-[color:var(--text-muted)] uppercase tracking-widest">Board Name</label>
             <div className="flex items-center gap-2">
               <div className="flex-1 relative">
                 <input 
@@ -100,7 +102,7 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
                   placeholder="Enter board name..."
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all font-medium text-slate-900"
+                  className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all font-medium text-[color:var(--text-primary)]"
                   style={{
                     background: theme.inputBg,
                     borderColor: theme.accentBorder,
@@ -108,12 +110,12 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
                 />
               </div>
             </div>
-            <p className="text-xs text-slate-500">Rename your board to keep track of what you're building.</p>
+            <p className="text-xs text-[color:var(--text-muted)]">Rename your board to keep track of what you're building.</p>
           </div>
 
           {/* Board Info */}
           <div className="space-y-3">
-            <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">Board Info</label>
+            <label className="block text-xs font-bold text-[color:var(--text-muted)] uppercase tracking-widest">Board Info</label>
             <div
               className="rounded-lg p-4 space-y-2 border"
               style={{
@@ -122,33 +124,38 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
               }}
             >
               <div className="flex justify-between text-sm">
-                <span className="text-slate-500 font-medium">Total Columns:</span>
-                <span className="text-slate-900 font-bold">{board.lists.length}</span>
+                <span className="text-[color:var(--text-muted)] font-medium">Total Columns:</span>
+                <span className="text-[color:var(--text-primary)] font-bold">{board.lists.length}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-slate-500 font-medium">Total Tasks:</span>
-                <span className="text-slate-900 font-bold">{board.lists.reduce((sum, list) => sum + list.cards.length, 0)}</span>
+                <span className="text-[color:var(--text-muted)] font-medium">Total Tasks:</span>
+                <span className="text-[color:var(--text-primary)] font-bold">{board.lists.reduce((sum, list) => sum + list.cards.length, 0)}</span>
               </div>
               <div className="flex justify-between text-sm">
-                <span className="text-slate-500 font-medium">Created:</span>
-                <span className="text-slate-900 font-bold">{new Date().toLocaleDateString()}</span>
+                <span className="text-[color:var(--text-muted)] font-medium">Created:</span>
+                <span className="text-[color:var(--text-primary)] font-bold">{new Date().toLocaleDateString()}</span>
               </div>
             </div>
           </div>
 
           {/* Danger Zone */}
-          <div className="space-y-3 pt-4 border-t border-slate-200">
+          <div className="space-y-3 pt-4 border-t" style={{ borderColor: theme.accentBorder }}>
             <label className="block text-xs font-bold text-rose-600 uppercase tracking-widest">Danger Zone</label>
             <button 
               onClick={handleDelete}
-              className="w-full flex items-center justify-center gap-2 px-4 py-3 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold rounded-lg transition-all border border-rose-200 group active:scale-95"
+              className="w-full flex items-center justify-center gap-2 px-4 py-3 font-bold rounded-lg transition-all border group active:scale-95"
+              style={{
+                background: 'rgba(225, 29, 72, 0.16)',
+                borderColor: 'rgba(251, 113, 133, 0.45)',
+                color: '#fecdd3',
+              }}
             >
               <svg className="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
               </svg>
               Delete This Board
             </button>
-            <p className="text-xs text-slate-500">This action cannot be undone. Be careful!</p>
+            <p className="text-xs text-[color:var(--text-muted)]">This action cannot be undone. Be careful!</p>
           </div>
         </div>
 
@@ -162,7 +169,7 @@ const BoardSettingsModal: React.FC<BoardSettingsModalProps> = ({ board, onClose 
         >
           <button 
             onClick={onClose} 
-            className="px-5 py-2.5 text-sm font-bold text-slate-600 hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
+            className="px-5 py-2.5 text-sm font-bold text-[color:var(--text-muted)] hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
           >
             Cancel
           </button>

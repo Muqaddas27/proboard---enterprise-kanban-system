@@ -69,6 +69,8 @@ const ConfirmDialogComponent: React.FC<ConfirmDialogComponentProps> = ({ dialog,
           borderColor: theme.accentBorder,
           ['--accent-strong' as any]: theme.accentStrong,
           ['--accent-muted' as any]: theme.accentMuted,
+          ['--text-primary' as any]: theme.textColor,
+          ['--text-muted' as any]: theme.textMuted,
         }}
       >
         {/* Header */}
@@ -79,14 +81,14 @@ const ConfirmDialogComponent: React.FC<ConfirmDialogComponentProps> = ({ dialog,
             borderColor: theme.accentBorder,
           }}
         >
-          <h3 className={`text-lg font-bold ${isDanger ? 'text-rose-900' : 'text-slate-900'}`}>
+          <h3 className={`text-lg font-bold ${isDanger ? 'text-rose-300' : 'text-[color:var(--text-primary)]'}`}>
             {options.title}
           </h3>
         </div>
 
         {/* Content */}
         <div className="px-6 py-4">
-          <p className="text-slate-600 text-sm leading-relaxed">{options.message}</p>
+          <p className="text-[color:var(--text-muted)] text-sm leading-relaxed">{options.message}</p>
         </div>
 
         {/* Actions */}
@@ -99,7 +101,7 @@ const ConfirmDialogComponent: React.FC<ConfirmDialogComponentProps> = ({ dialog,
         >
           <button
             onClick={onCancel}
-            className="px-4 py-2.5 text-sm font-bold text-slate-600 hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
+            className="px-4 py-2.5 text-sm font-bold text-[color:var(--text-muted)] hover:bg-[var(--accent-muted)] rounded-lg transition-all active:scale-95"
           >
             {options.cancelText || 'Cancel'}
           </button>

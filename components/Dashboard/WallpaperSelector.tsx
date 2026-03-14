@@ -206,6 +206,20 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
   console.log('🔓 Dropdown isOpen:', isOpen);
   const [position, setPosition] = useState({ top: 0, left: 0 });
   const [options, setOptions] = useState<WallpaperOption[]>(() => getAllWallpaperOptions());
+  const activeTheme = options.find((option) => option.id === currentWallpaper) || BASE_WALLPAPER_OPTIONS[0];
+  const getAccentColor = (accent: string) => {
+    if (accent.includes('blue')) return '#60a5fa';
+    if (accent.includes('purple')) return '#c4b5fd';
+    if (accent.includes('cyan')) return '#67e8f9';
+    if (accent.includes('emerald')) return '#6ee7b7';
+    if (accent.includes('amber')) return '#fcd34d';
+    if (accent.includes('fuchsia')) return '#f5a3ff';
+    if (accent.includes('sky')) return '#7dd3fc';
+    if (accent.includes('rose')) return '#fda4af';
+    if (accent.includes('slate')) return '#cbd5e1';
+    return '#a5b4fc';
+  };
+  const accentColor = getAccentColor(activeTheme.cardAccent);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -290,10 +304,12 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
             }}
           />
           <div
-            className="fixed w-80 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto bg-white border-4 border-red-500 rounded-lg p-4 shadow-2xl z-[99999]"
+            className={`fixed w-80 max-w-[calc(100vw-2rem)] max-h-[70vh] overflow-y-auto bg-gradient-to-br ${activeTheme.gradient} border border-white/25 rounded-lg p-4 shadow-2xl z-[99999]`}
             style={{
               top: `${position.top}px`,
-              left: `${position.left}px`
+              left: `${position.left}px`,
+              borderColor: `${accentColor}88`,
+              boxShadow: `0 20px 40px -16px ${accentColor}77`
             }}
             onMouseDown={(e) => {
               console.log('📦 Dropdown mousedown');
@@ -304,7 +320,8 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
               e.stopPropagation();
             }}
           >
-            <h3 className="text-sm font-bold text-slate-800 mb-3 px-2">Choose Wallpaper</h3>
+            <div className="absolute inset-0 bg-slate-950/35 rounded-lg pointer-events-none" />
+            <h3 className="relative z-10 text-sm font-bold text-white mb-3 px-2">Choose Wallpaper</h3>
             <div className="grid grid-cols-2 gap-3">
               <button
                 onClick={(e) => {
@@ -312,17 +329,21 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
                   console.log('📂 Gallery button clicked');
                   handleOpenGallery();
                 }}
-                className="group relative overflow-hidden rounded-lg p-3 transition-all bg-slate-50 hover:bg-slate-100 border border-dashed border-slate-300"
+                className="group relative overflow-hidden rounded-lg p-3 transition-all bg-black/25 hover:bg-black/40 border border-dashed border-white/25 hover:border-[var(--accent)]"
+                style={{
+                  ['--accent' as any]: accentColor,
+                  ['--accent-soft' as any]: `${accentColor}22`
+                }}
                 type="button"
               >
                 <div className="relative z-10 flex flex-col items-center justify-center gap-2 h-full min-h-[88px]">
-                  <div className="w-8 h-8 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-600">
+                  <div className="w-8 h-8 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 16l4-4a3 3 0 014 0l2 2a3 3 0 004 0l4-4" />
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 7h7m0 0v7m0-7L10 18" />
                     </svg>
                   </div>
-                  <span className="text-xs font-bold text-slate-700">Choose from Gallery</span>
+                  <span className="text-xs font-bold text-white">Choose from Gallery</span>
                 </div>
               </button>
               {options.map((option) => (
@@ -342,20 +363,28 @@ const WallpaperSelector: React.FC<WallpaperSelectorProps> = ({
                   }}
                   className={`group relative overflow-hidden rounded-lg p-3 transition-all cursor-pointer ${
                     currentWallpaper === option.id
-                      ? 'ring-2 ring-indigo-400 bg-slate-900'
-                      : 'hover:bg-slate-50 bg-white'
+                      ? 'bg-black/45 border'
+                      : 'hover:bg-black/40 bg-black/20 border border-white/15 hover:border-[var(--accent)]'
                   }`}
-                  style={{ minHeight: '100px', position: 'relative', zIndex: 1 }}
+                  style={{
+                    minHeight: '100px',
+                    position: 'relative',
+                    zIndex: 1,
+                    borderColor: currentWallpaper === option.id ? accentColor : `${accentColor}55`,
+                    boxShadow: currentWallpaper === option.id ? `0 0 0 2px ${accentColor}99` : 'none',
+                    ['--accent' as any]: accentColor,
+                    ['--accent-soft' as any]: `${accentColor}22`
+                  }}
                 >
                   <div className="relative z-10 pointer-events-none">
-                    <p className="text-xs font-bold text-slate-800">{option.name}</p>
+                    <p className="text-xs font-bold text-white">{option.name}</p>
                   </div>
                 </button>
               ))}
             </div>
 
             {/* Close hint */}
-            <p className="text-xs text-slate-500 mt-3 px-2 text-center">Click outside to close</p>
+            <p className="relative z-10 text-xs text-white/70 mt-3 px-2 text-center">Click outside to close</p>
           </div>
         </>,
         document.body
