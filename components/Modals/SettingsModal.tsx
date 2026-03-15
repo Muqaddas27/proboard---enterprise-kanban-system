@@ -90,7 +90,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ type, onClose }) => {
                 <input
                   type="text"
                   defaultValue="John Doe"
-                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all"
+                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)]"
                   style={{
                     background: theme.inputBg,
                     borderColor: theme.accentBorder,
@@ -102,7 +102,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ type, onClose }) => {
                 <input
                   type="email"
                   defaultValue="john.doe@company.com"
-                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all"
+                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)]"
                   style={{
                     background: theme.inputBg,
                     borderColor: theme.accentBorder,
@@ -114,7 +114,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ type, onClose }) => {
                 <input
                   type="password"
                   placeholder="********"
-                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all"
+                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)]"
                   style={{
                     background: theme.inputBg,
                     borderColor: theme.accentBorder,
@@ -151,7 +151,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({ type, onClose }) => {
                 <input
                   type="text"
                   defaultValue="ProBoard Team"
-                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all"
+                  className="w-full px-4 py-3 border rounded focus:ring-2 focus:ring-[var(--accent-ring)] focus:border-[var(--accent-strong)] outline-none transition-all text-[color:var(--text-primary)] placeholder:text-[color:var(--text-muted)]"
                   style={{
                     background: theme.inputBg,
                     borderColor: theme.accentBorder,

@@ -10,291 +10,378 @@ interface LandingPageProps {
   onNavigateSecurity: () => void;
 }
 
+// ===================== REDESIGNED LANDING PAGE =====================
+
 const LandingPage: React.FC<LandingPageProps> = ({ onNavigateLogin, onNavigateAbout, onNavigateFeatures, onNavigatePricing, onNavigateSecurity }) => {
   return (
     <div className="min-h-screen text-white overflow-hidden">
-      {/* Enhanced Background with Pattern */}
-      <div className="fixed inset-0">
-        {/* Professional Navy/Slate Base */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950" />
-        <div className="absolute inset-0 bg-gradient-to-tr from-blue-950/40 to-slate-950/40" />
-        
-        {/* Subtle Grid Pattern */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: 'linear-gradient(0deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(148, 163, 184, .05) 25%, rgba(148, 163, 184, .05) 26%, transparent 27%, transparent 74%, rgba(148, 163, 184, .05) 75%, rgba(148, 163, 184, .05) 76%, transparent 77%, transparent)',
-          backgroundSize: '60px 60px'
-        }} />
-        
-        {/* Subtle Professional Accent Glows */}
-        <div className="absolute top-20 right-1/4 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-1/4 w-[400px] h-[400px] bg-slate-600/10 rounded-full blur-3xl" />
+      {/* Colorful Background Blobs */}
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-40 -right-40 w-[900px] h-[900px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(139,92,246,0.2) 0%, transparent 70%)' }} />
+        <div className="absolute top-1/3 -left-60 w-[700px] h-[700px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(236,72,153,0.14) 0%, transparent 70%)' }} />
+        <div className="absolute bottom-0 right-1/3 w-[600px] h-[600px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(6,182,212,0.12) 0%, transparent 70%)' }} />
+        <div className="absolute top-2/3 left-1/2 w-[500px] h-[500px] rounded-full"
+          style={{ background: 'radial-gradient(circle, rgba(251,146,60,0.08) 0%, transparent 70%)' }} />
       </div>
 
-      {/* Content */}
       <div className="relative z-10 pt-16">
-        {/* Navigation */}
         <Header
           onNavigateLanding={() => {}}
-          onNavigateLogin={onNavigateLogin}
+          onNavigateLogin={onNavigateLogin}  
           onNavigateAbout={onNavigateAbout}
           onNavigateFeatures={onNavigateFeatures}
           onNavigatePricing={onNavigatePricing}
           onNavigateSecurity={onNavigateSecurity}
         />
 
-        {/* Hero Section */}
-        <section className="max-w-7xl mx-auto px-6 pt-20 pb-32">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            {/* Left Content */}
+        {/* ===== HERO SECTION ===== */}
+        <section className="min-h-screen flex items-center max-w-7xl mx-auto px-6 pt-10 pb-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-center w-full">
+            {/* Left */}
             <div className="space-y-8">
-              <div className="space-y-6">
-                <div className="inline-block animate-pulse">
-                  <span className="px-4 py-2 bg-indigo-500/20 border border-indigo-400/50 rounded-full text-sm font-bold text-indigo-300 backdrop-blur-xl">
-                    ⚡ Enterprise-Grade Task Management
-                  </span>
-                </div>
-                <h1 className="text-6xl md:text-7xl font-black leading-tight">
-                  Organize Work.
-                  <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400">
-                    Amplify Impact.
-                  </span>
-                </h1>
-                <p className="text-xl text-white/70 font-semibold leading-relaxed">
-                  ProBoard is the modern kanban tool for teams that need to deliver faster. Drag, drop, and dominate your workflow.
-                </p>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
+                style={{ background: 'rgba(139,92,246,0.15)', border: '1px solid rgba(139,92,246,0.4)', color: '#c4b5fd' }}>
+                <span className="w-2 h-2 rounded-full bg-violet-400 animate-pulse" />
+                ⚡ Enterprise Kanban · AI-Powered · Real-time
               </div>
-
-              <div className="flex gap-4">
-                <button
-                  onClick={onNavigateLogin}
-                  className="px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 rounded-lg font-bold text-lg transition-all shadow-xl shadow-indigo-500/40 active:scale-95 hover:shadow-2xl hover:shadow-indigo-500/60 hover:translate-y-[-2px] flex items-center gap-2 group"
-                >
-                  <svg className="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M5.5 13a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.3A4.5 4.5 0 1113.5 13H11V9.413l1.293 1.293a1 1 0 001.414-1.414l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13H5.5z" />
-                  </svg>
-                  Start Your Free Trial
+              <h1 className="text-6xl lg:text-7xl font-black leading-[1.05]">
+                Work Smarter,
+                <br />
+                <span className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #a78bfa, #f472b6, #fb923c)' }}>
+                  Ship Faster.
+                </span>
+              </h1>
+              <p className="text-xl text-white/60 leading-relaxed max-w-xl">
+                ProBoard combines beautiful kanban boards, AI task management, and real-time team collaboration — trusted by 10,000+ teams worldwide.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <button onClick={onNavigateLogin}
+                  className="px-8 py-4 rounded font-bold text-lg transition-all active:scale-95 text-white"
+                  style={{ background: 'linear-gradient(135deg, #7c3aed, #db2777)', boxShadow: '0 20px 60px -10px rgba(124,58,237,0.6)' }}>
+                  🚀 Start Free Trial
                 </button>
-                <button
-                  onClick={onNavigatePricing}
-                  className="px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-lg font-bold text-lg transition-all flex items-center gap-2 group backdrop-blur-xl hover:translate-y-[-2px]"
-                >
-                  <svg className="w-5 h-5 group-hover:scale-110 transition-transform" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M8.433 7.418c.155-.103.346-.196.567-.267.232-.074.564-.11.857-.11h.667c.288 0 .658.088.86.26.203.174.38.458.38.920 0 .449-.13.798-.386 1.02-.256.22-.641.35-1.085.35-.857 0-1.554-.535-1.894-1.466zm5.835.75a6 6 0 00-1.015-5.456 6 6 0 00-5.4-2.56 6 6 0 00-5.4 2.56 6 6 0 000 8.912 6 6 0 005.4 2.56 6.002 6.002 0 003.803-1.257l2.905 2.906a1 1 0 001.414-1.414l-2.906-2.905A5.988 5.988 0 0014.268 8.168z" />
-                  </svg>
-                  View Pricing
+                <button onClick={onNavigatePricing}
+                  className="px-8 py-4 rounded font-bold text-lg transition-all border border-white/20 hover:border-white/40 hover:bg-white/10">
+                  View Pricing →
                 </button>
               </div>
-
-              <div className="flex gap-8 pt-8 border-t border-white/10">
-                <div className="space-y-1 group cursor-pointer">
-                  <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400 group-hover:scale-110 transition-transform origin-left">99.9%</p>
-                  <p className="text-white/60 font-semibold">Uptime SLA</p>
+              <div className="flex items-center gap-6 pt-4">
+                <div className="flex -space-x-3">
+                  {[
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=60&q=80',
+                    'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=60&q=80',
+                    'https://images.unsplash.com/photo-1463453091185-61582044d556?w=60&q=80',
+                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&q=80',
+                  ].map((src, i) => (
+                    <img key={i} src={src} alt="User" className="w-10 h-10 rounded-full object-cover"
+                      style={{ border: '2px solid var(--pb-bg)' }} />
+                  ))}
                 </div>
-                <div className="space-y-1 group cursor-pointer">
-                  <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400 group-hover:scale-110 transition-transform origin-left">10K+</p>
-                  <p className="text-white/60 font-semibold">Active Teams</p>
-                </div>
-                <div className="space-y-1 group cursor-pointer">
-                  <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-red-400 group-hover:scale-110 transition-transform origin-left">50+</p>
-                  <p className="text-white/60 font-semibold">Integrations</p>
+                <div>
+                  <div className="flex gap-1 text-yellow-400 text-sm">★★★★★</div>
+                  <p className="text-white/50 text-sm font-medium">Loved by 10,000+ teams</p>
                 </div>
               </div>
             </div>
 
-            {/* Right - Kanban Board Illustration */}
-            <div className="relative h-96 flex items-center justify-center">
-              {/* Kanban Board Container */}
-              <div className="w-full max-w-md bg-gradient-to-br from-slate-800/90 to-slate-900/90 rounded-3xl p-8 shadow-[0_30px_90px_-15px_rgba(0,0,0,0.8)] border border-slate-600/50 overflow-hidden hover:scale-110 transition-all duration-500 backdrop-blur-2xl">
-                {/* Board Header */}
-                <div className="flex items-center gap-3 mb-8 pb-6 border-b border-slate-600/50">
-                  <div className="flex gap-2.5">
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-red-400 to-red-600 shadow-lg shadow-red-500/50" />
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg shadow-yellow-500/50" />
-                    <div className="w-4 h-4 rounded-full bg-gradient-to-br from-green-400 to-green-600 shadow-lg shadow-green-500/50" />
-                  </div>
-                  <span className="text-sm font-black text-slate-300 ml-4 tracking-wide">Project Board</span>
-                </div>
-
-                {/* Kanban Columns */}
-                <div className="flex gap-4 justify-center">
-                  {/* Column 1: To Do */}
-                  <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite' }}>
-                    <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">To Do</h3>
-                    <div className="bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg p-3 h-14 shadow-2xl shadow-indigo-500/50 flex flex-col justify-between border border-indigo-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Design</p>
-                      <p className="text-[9px] text-indigo-100 leading-tight font-semibold">Homepage</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg p-3 h-14 shadow-2xl shadow-purple-500/50 flex flex-col justify-between border border-purple-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">API Setup</p>
-                      <p className="text-[9px] text-purple-100 leading-tight font-semibold">Backend</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 h-14 shadow-2xl shadow-blue-500/40 flex flex-col justify-between opacity-90 border border-blue-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Research</p>
-                      <p className="text-[9px] text-blue-100 leading-tight font-semibold">Market</p>
-                    </div>
-                  </div>
-
-                  {/* Column 2: In Progress */}
-                  <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite', animationDelay: '0.2s' }}>
-                    <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">Progress</h3>
-                    <div className="bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg p-3 h-14 shadow-2xl shadow-cyan-500/50 flex flex-col justify-between border border-cyan-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Dev</p>
-                      <p className="text-[9px] text-cyan-100 leading-tight font-semibold">Frontend</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg p-3 h-14 shadow-2xl shadow-blue-500/50 flex flex-col justify-between border border-blue-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Database</p>
-                      <p className="text-[9px] text-blue-100 leading-tight font-semibold">Schema</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-sky-500 to-sky-600 rounded-lg p-3 h-14 shadow-2xl shadow-sky-500/40 flex flex-col justify-between opacity-90 border border-sky-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Testing</p>
-                      <p className="text-[9px] text-sky-100 leading-tight font-semibold">QA</p>
-                    </div>
-                  </div>
-
-                  {/* Column 3: Done */}
-                  <div className="w-28 space-y-3" style={{ animation: 'float 4s ease-in-out infinite', animationDelay: '0.4s' }}>
-                    <h3 className="text-[11px] font-black text-slate-300 uppercase tracking-widest px-2 h-4">Done</h3>
-                    <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg p-3 h-14 shadow-2xl shadow-emerald-500/50 flex flex-col justify-between border border-emerald-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Deploy</p>
-                      <p className="text-[9px] text-emerald-100 leading-tight font-semibold">v1.0</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-green-500 to-green-600 rounded-lg p-3 h-14 shadow-2xl shadow-green-500/50 flex flex-col justify-between border border-green-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Monitor</p>
-                      <p className="text-[9px] text-green-100 leading-tight font-semibold">Live</p>
-                    </div>
-                    <div className="bg-gradient-to-br from-teal-500 to-teal-600 rounded-lg p-3 h-14 shadow-2xl shadow-teal-500/40 flex flex-col justify-between opacity-90 border border-teal-400/30 hover:scale-110 transition-transform">
-                      <p className="text-[11px] font-extrabold text-white leading-tight drop-shadow-md">Feedback</p>
-                      <p className="text-[9px] text-teal-100 leading-tight font-semibold">Review</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Animation styles */}
-                <style>{`
-                  @keyframes float {
-                    0%, 100% { transform: translateY(0px); }
-                    50% { transform: translateY(-10px); }
-                  }
-                `}</style>
+            {/* Right - Hero Image */}
+            <div className="relative">
+              <div className="absolute inset-0 rounded-2xl blur-3xl opacity-25"
+                style={{ background: 'linear-gradient(135deg, #7c3aed, #db2777)' }} />
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80"
+                alt="Team collaboration"
+                className="relative rounded-2xl w-full object-cover"
+                style={{ height: '480px', boxShadow: '0 40px 80px rgba(0,0,0,0.7)' }}
+              />
+              <div className="absolute -top-5 -left-5 px-4 py-3 rounded-xl text-sm font-bold text-white shadow-2xl"
+                style={{ background: 'linear-gradient(135deg, #059669, #10b981)', boxShadow: '0 15px 40px rgba(5,150,105,0.5)' }}>
+                ✓ 24 Tasks Completed Today
               </div>
-
-              {/* Floating Feature Badges */}
-              <div className="absolute -top-16 right-0 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(99,102,241,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md">
-                ✨ AI Powered
-              </div>
-              <div className="absolute -bottom-16 left-0 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg px-6 py-3 text-white font-black shadow-[0_20px_70px_-15px_rgba(236,72,153,0.8)] animate-bounce text-base whitespace-nowrap border-2 border-white/30 backdrop-blur-md" style={{ animationDelay: '0.3s' }}>
-                🚀 Lightning Fast
+              <div className="absolute -bottom-5 -right-5 px-4 py-3 rounded-xl text-sm font-bold text-white shadow-2xl"
+                style={{ background: 'linear-gradient(135deg, #7c3aed, #a855f7)', boxShadow: '0 15px 40px rgba(124,58,237,0.5)' }}>
+                🤖 AI Suggestions Ready
               </div>
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section className="max-w-7xl mx-auto px-6 py-20">
-          <div className="text-center mb-16 space-y-4">
-            <h2 className="text-5xl md:text-6xl font-black">What makes ProBoard different</h2>
-            <p className="text-xl text-white/60 font-semibold">Everything you need to manage projects like a pro</p>
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              {
-                icon: '📋',
-                title: 'Smart Kanban',
-                description: 'Intuitive drag-and-drop interface with powerful filtering and sorting',
-                gradient: 'from-indigo-600/20 to-indigo-600/5',
-                borderColor: 'indigo'
-              },
-              {
-                icon: '🤖',
-                title: 'AI-Powered',
-                description: 'Auto-generate descriptions and get smart task suggestions',
-                gradient: 'from-purple-600/20 to-purple-600/5',
-                borderColor: 'purple'
-              },
-              {
-                icon: '👥',
-                title: 'Team First',
-                description: 'Real-time collaboration, comments, and team management',
-                gradient: 'from-pink-600/20 to-pink-600/5',
-                borderColor: 'pink'
-              },
-              {
-                icon: '📅',
-                title: 'Smart Scheduling',
-                description: 'Due dates, milestones, and timeline visualization',
-                gradient: 'from-blue-600/20 to-blue-600/5',
-                borderColor: 'blue'
-              },
-              {
-                icon: '📊',
-                title: 'Rich Analytics',
-                description: 'Track productivity and visualize team performance metrics',
-                gradient: 'from-green-600/20 to-green-600/5',
-                borderColor: 'green'
-              },
-              {
-                icon: '🔒',
-                title: 'Enterprise Security',
-                description: 'Bank-level encryption and compliance with all standards',
-                gradient: 'from-orange-600/20 to-orange-600/5',
-                borderColor: 'orange'
-              }
-            ].map((feature, idx) => (
-              <div 
-                key={idx} 
-                className={`p-10 bg-gradient-to-br ${feature.gradient} border border-white/20 rounded-3xl
-                  hover:border-white/40 hover:bg-gradient-to-br hover:from-white/10 hover:to-white/5 
-                  transition-all duration-500 group cursor-pointer hover:shadow-[0_25px_80px_-15px_rgba(99,102,241,0.4)]
-                  hover:translate-y-[-8px] backdrop-blur-xl hover:scale-105 relative overflow-hidden`}
-                style={{ animation: `slideIn 0.5s ease-out ${idx * 0.1}s both` }}
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/10 group-hover:via-purple-500/10 group-hover:to-pink-500/10 transition-all duration-500" />
-                <div className="text-6xl mb-6 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 block drop-shadow-2xl relative">
-                  {feature.icon}
+        {/* ===== TRUSTED BY ===== */}
+        <section className="py-20" style={{ background: 'rgba(139,92,246,0.07)' }}>
+          <div className="max-w-6xl mx-auto px-6">
+            <p className="text-center text-white/35 font-semibold mb-12 uppercase tracking-widest text-xs">
+              Trusted by 10,000+ teams worldwide
+            </p>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4">
+              {[
+                { name: 'Google',    icon: '🔵', accent: '#4285F4', sub: 'Search & Cloud' },
+                { name: 'Microsoft', icon: '🟩', accent: '#00A4EF', sub: 'Enterprise' },
+                { name: 'Airbnb',   icon: '🏠', accent: '#FF5A5F', sub: 'Travel Tech' },
+                { name: 'Spotify',  icon: '🎵', accent: '#1DB954', sub: 'Music & Audio' },
+                { name: 'Netflix',  icon: '🎬', accent: '#E50914', sub: 'Streaming' },
+                { name: 'Stripe',   icon: '💳', accent: '#635BFF', sub: 'Payments' },
+              ].map(brand => (
+                <div key={brand.name}
+                  className="group flex flex-col items-center justify-center gap-2 py-5 px-3 rounded-xl transition-all duration-300 hover:-translate-y-1 cursor-default"
+                  style={{ background: 'rgba(255,255,255,0.04)', boxShadow: '0 4px 20px rgba(0,0,0,0.25)' }}
+                  onMouseEnter={e => (e.currentTarget.style.boxShadow = `0 8px 30px ${brand.accent}40`)}
+                  onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 4px 20px rgba(0,0,0,0.25)')}>
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xl transition-transform duration-300 group-hover:scale-110"
+                    style={{ background: brand.accent + '18', border: `1px solid ${brand.accent}33` }}>
+                    {brand.icon}
+                  </div>
+                  <span className="font-black text-sm text-white/70 group-hover:text-white transition-colors">{brand.name}</span>
+                  <span className="text-white/25 text-xs group-hover:text-white/45 transition-colors hidden lg:block">{brand.sub}</span>
                 </div>
-                <h3 className="text-2xl font-black mb-4 text-white transition-all duration-500 relative drop-shadow-lg">
-                  {feature.title}
-                </h3>
-                <p className="text-white/70 font-semibold text-base leading-relaxed group-hover:text-white transition-colors relative">
-                  {feature.description}
-                </p>
+              ))}
+            </div>
+            <div className="flex justify-center gap-8 mt-10 flex-wrap">
+              {[
+                { value: '10,000+', label: 'Teams', color: '#a78bfa' },
+                { value: '50+', label: 'Countries', color: '#f472b6' },
+                { value: '4.9★', label: 'Avg Rating', color: '#fbbf24' },
+                { value: '99.9%', label: 'Uptime', color: '#34d399' },
+              ].map((s, i) => (
+                <div key={i} className="text-center">
+                  <div className="text-2xl font-black" style={{ color: s.color }}>{s.value}</div>
+                  <div className="text-white/35 text-xs font-medium mt-0.5">{s.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== FEATURES SECTION ===== */}
+        <section className="py-28 max-w-7xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <span className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
+              style={{ background: 'rgba(6,182,212,0.15)', border: '1px solid rgba(6,182,212,0.3)', color: '#67e8f9' }}>
+              Everything you need
+            </span>
+            <h2 className="text-5xl md:text-6xl font-black mt-6 mb-4">
+              Built for teams that mean business
+            </h2>
+            <p className="text-xl text-white/50 max-w-2xl mx-auto">
+              From simple task tracking to complex enterprise workflows. Scales with your ambitions.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { color: '#7c3aed', icon: '📋', title: 'Smart Kanban Boards',
+                desc: 'Drag-and-drop simplicity meets enterprise power. Create unlimited boards with custom workflows.',
+                img: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?w=500&q=80' },
+              { color: '#db2777', icon: '🤖', title: 'AI-Powered Assistance',
+                desc: 'Let AI write task descriptions, suggest priorities, and summarize updates automatically.',
+                img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=500&q=80' },
+              { color: '#0891b2', icon: '👥', title: 'Real-time Collaboration',
+                desc: 'See changes instantly as your team works. Comments, mentions, and live activity feeds.',
+                img: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&q=80' },
+              { color: '#059669', icon: '📊', title: 'Advanced Analytics',
+                desc: 'Track team velocity, cycle time, and burndown charts. Make data-driven decisions.',
+                img: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&q=80' },
+              { color: '#d97706', icon: '🔗', title: '50+ Integrations',
+                desc: 'Connect Slack, GitHub, Jira, Google Drive, and 50+ tools you already use.',
+                img: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80' },
+              { color: '#dc2626', icon: '🔒', title: 'Enterprise Security',
+                desc: 'SOC 2 certified. AES-256 encryption. SSO. 99.9% uptime SLA for total peace of mind.',
+                img: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=500&q=80' },
+            ].map((f, i) => (
+              <div key={i} className="group rounded-2xl overflow-hidden hover:-translate-y-2 transition-all duration-300 cursor-pointer"
+                style={{ background: 'rgba(255,255,255,0.05)', boxShadow: '0 8px 32px rgba(0,0,0,0.4)' }}>
+                <div className="relative h-44 overflow-hidden">
+                  <img src={f.img} alt={f.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, ${f.color}30, rgba(10,6,24,0.7))` }} />
+                  <div className="absolute top-4 left-4 text-3xl filter drop-shadow-lg">{f.icon}</div>
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-black mb-2 text-white">{f.title}</h3>
+                  <p className="text-white/55 text-sm leading-relaxed">{f.desc}</p>
+                  <div className="mt-4 h-0.5 w-0 group-hover:w-full transition-all duration-500 rounded"
+                    style={{ background: `linear-gradient(to right, ${f.color}, transparent)` }} />
+                </div>
               </div>
             ))}
           </div>
-
-          <style>{`
-            @keyframes slideIn {
-              from {
-                opacity: 0;
-                transform: translateY(20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-          `}</style>
         </section>
 
-        {/* CTA Section */}
-        <section className="max-w-4xl mx-auto px-6 py-20">
-          <div className="relative group">
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl opacity-20 blur-2xl group-hover:opacity-30 group-hover:blur-3xl transition-all" />
-            <div className="relative bg-gradient-to-br from-indigo-600/10 to-purple-600/10 border border-indigo-500/30 rounded-3xl backdrop-blur-xl group-hover:border-indigo-500/50 transition-all p-16 text-center space-y-8">
-              <h2 className="text-5xl md:text-6xl font-black leading-tight">Ready to transform your workflow?</h2>
-              <p className="text-xl text-white/70 font-semibold max-w-2xl mx-auto">
-                Join thousands of teams that have already revolutionized their productivity with ProBoard
-              </p>
-              <button
-                onClick={onNavigateLogin}
-                className="px-10 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 
-                  rounded-lg font-bold text-lg transition-all shadow-2xl shadow-indigo-500/50 active:scale-95 
-                  hover:shadow-2xl hover:shadow-indigo-500/70 hover:translate-y-[-2px] inline-block"
-              >
-                Start Free — No credit card required
+        {/* ===== HOW IT WORKS ===== */}
+        <section className="py-28 relative overflow-hidden">
+          <div className="absolute inset-0"
+            style={{ background: 'linear-gradient(135deg, rgba(124,58,237,0.07) 0%, rgba(219,39,119,0.07) 100%)' }} />
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <span className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
+                style={{ background: 'rgba(251,146,60,0.15)', border: '1px solid rgba(251,146,60,0.3)', color: '#fbbf24' }}>
+                How it works
+              </span>
+              <h2 className="text-5xl md:text-6xl font-black mt-6">
+                Up and running in{' '}
+                <span className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #fb923c, #f472b6)' }}>
+                  5 minutes
+                </span>
+              </h2>
+            </div>
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                {[
+                  { n: '01', color: '#7c3aed', title: 'Create your workspace',
+                    desc: 'Sign up and create your team workspace in seconds. Invite members with a single click.' },
+                  { n: '02', color: '#db2777', title: 'Build your boards',
+                    desc: 'Start from a template or blank board. Customize columns and workflows to match how you work.' },
+                  { n: '03', color: '#0891b2', title: 'Ship with confidence',
+                    desc: 'Track progress in real-time, get AI insights, and never miss a deadline again.' },
+                ].map((step) => (
+                  <div key={step.n} className="flex gap-6 group cursor-pointer">
+                    <div className="flex-shrink-0 w-14 h-14 rounded-xl flex items-center justify-center font-black text-white text-lg shadow-lg"
+                      style={{ background: step.color, boxShadow: `0 10px 30px ${step.color}60` }}>
+                      {step.n}
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-black text-white mb-2">{step.title}</h3>
+                      <p className="text-white/55 leading-relaxed">{step.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div className="relative">
+                <div className="absolute inset-0 blur-3xl opacity-20 rounded-3xl"
+                  style={{ background: 'linear-gradient(135deg, #7c3aed, #db2777)' }} />
+                <img
+                  src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
+                  alt="Dashboard screenshot"
+                  className="relative rounded-2xl w-full object-cover"
+                  style={{ height: '420px', boxShadow: '0 40px 80px rgba(0,0,0,0.7)' }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== STATS ===== */}
+        <section className="py-24 max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-4 gap-6">
+            {[
+              { value: '10K+', label: 'Active Teams', color: '#a78bfa' },
+              { value: '99.9%', label: 'Uptime SLA', color: '#f472b6' },
+              { value: '50+', label: 'Integrations', color: '#34d399' },
+              { value: '4.9/5', label: 'User Rating', color: '#fbbf24' },
+            ].map((s, i) => (
+              <div key={i} className="text-center p-8 rounded-2xl hover:-translate-y-2 transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.05)', boxShadow: '0 8px 30px rgba(0,0,0,0.35)' }}>
+                <div className="text-5xl font-black mb-2" style={{ color: s.color }}>{s.value}</div>
+                <div className="text-white/50 font-semibold">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* ===== TESTIMONIALS ===== */}
+        <section className="py-28 relative overflow-hidden">
+          <div className="absolute inset-0"
+            style={{ background: 'linear-gradient(135deg, rgba(6,182,212,0.05) 0%, rgba(124,58,237,0.07) 100%)' }} />
+          <div className="relative max-w-7xl mx-auto px-6">
+            <div className="text-center mb-20">
+              <span className="px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider inline-block"
+                style={{ background: 'rgba(52,211,153,0.15)', border: '1px solid rgba(52,211,153,0.3)', color: '#6ee7b7' }}>
+                Customer Love
+              </span>
+              <h2 className="text-5xl md:text-6xl font-black mt-6">
+                Real teams,{' '}
+                <span className="text-transparent bg-clip-text"
+                  style={{ backgroundImage: 'linear-gradient(135deg, #6ee7b7, #67e8f9)' }}>
+                  real results
+                </span>
+              </h2>
+            </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { name: 'Sarah Mitchell', role: 'VP Engineering at TechCorp',
+                  img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80',
+                  quote: 'ProBoard completely transformed how our 50-person engineering team ships features. Our deployment frequency doubled in the first month.',
+                  accent: '#7c3aed' },
+                { name: 'James Rodriguez', role: 'Product Manager at StartupXYZ',
+                  img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80',
+                  quote: 'The AI suggestions save me hours every week. I used to dread writing task descriptions. Now the AI does it and I just review.',
+                  accent: '#db2777' },
+                { name: 'Lisa Chen', role: 'Design Lead at Creative Agency',
+                  img: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&q=80',
+                  quote: 'Switching from Jira to ProBoard was the best decision we ever made. Clean UI, powerful features, zero confusion for the team.',
+                  accent: '#0891b2' },
+              ].map((t, i) => (
+                <div key={i} className="p-8 rounded-2xl relative hover:-translate-y-2 transition-all duration-300"
+                  style={{ background: 'rgba(255,255,255,0.05)', boxShadow: '0 8px 32px rgba(0,0,0,0.35)' }}>
+                  <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl"
+                    style={{ background: `linear-gradient(to right, ${t.accent}, transparent)` }} />
+                  <div className="flex gap-1 text-yellow-400 text-sm mb-4">★★★★★</div>
+                  <p className="text-white/70 text-sm leading-relaxed mb-6 italic">"{t.quote}"</p>
+                  <div className="flex items-center gap-3">
+                    <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full object-cover border-2"
+                      style={{ borderColor: t.accent }} />
+                    <div>
+                      <div className="font-bold text-white text-sm">{t.name}</div>
+                      <div className="text-white/40 text-xs">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ===== SCREENSHOT SHOWCASE ===== */}
+        <section className="py-20 max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
+              style={{ background: 'rgba(124,58,237,0.08)', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=700&q=80"
+                alt="Analytics" className="w-full object-cover h-64 group-hover:scale-105 transition-transform duration-500" />
+              <div className="p-6">
+                <div className="text-violet-400 text-xs font-bold uppercase tracking-wider mb-2">Analytics Dashboard</div>
+                <h3 className="text-xl font-black text-white mb-2">Track everything that matters</h3>
+                <p className="text-white/50 text-sm">Real-time metrics, team velocity, and cycle time analysis in one beautiful dashboard.</p>
+              </div>
+            </div>
+            <div className="relative rounded-2xl overflow-hidden group cursor-pointer"
+              style={{ background: 'rgba(219,39,119,0.08)', boxShadow: '0 8px 40px rgba(0,0,0,0.4)' }}>
+              <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=700&q=80"
+                alt="Team collaboration" className="w-full object-cover h-64 group-hover:scale-105 transition-transform duration-500" />
+              <div className="p-6">
+                <div className="text-pink-400 text-xs font-bold uppercase tracking-wider mb-2">Team Workspace</div>
+                <h3 className="text-xl font-black text-white mb-2">Collaborate without the chaos</h3>
+                <p className="text-white/50 text-sm">Real-time updates, threaded comments, and @mentions keep everyone in the loop.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ===== CTA SECTION ===== */}
+        <section className="relative overflow-hidden py-20">
+          <div className="absolute inset-0">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=70" alt="" className="w-full h-full object-cover opacity-20" />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(76,29,149,0.96) 0%, rgba(131,24,67,0.93) 60%, rgba(8,145,178,0.80) 100%)' }} />
+          </div>
+          <div className="relative max-w-3xl mx-auto px-6 text-center">
+            <h2 className="text-4xl md:text-5xl font-black mb-4 leading-tight">Ready to get started?</h2>
+            <p className="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+              Join over 10,000 teams already using ProBoard. Free forever — no credit card required.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <button onClick={onNavigateLogin}
+                className="px-8 py-3.5 rounded font-bold text-base transition-all active:scale-95"
+                style={{ background: '#ffffff', color: '#6d28d9' }}>
+                Start Free Trial →
               </button>
-              <p className="text-white/40 text-sm font-medium">14-day free trial. Cancel anytime.</p>
+              <button onClick={onNavigateFeatures}
+                className="px-8 py-3.5 rounded font-bold text-base text-white transition-all active:scale-95"
+                style={{ border: '2px solid rgba(255,255,255,0.75)' }}>
+                See All Features
+              </button>
             </div>
           </div>
         </section>

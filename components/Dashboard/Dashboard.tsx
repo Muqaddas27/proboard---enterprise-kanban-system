@@ -57,7 +57,6 @@ const Dashboard: React.FC = () => {
 
   // Helper to get accent colors for UI elements based on wallpaper
   const getAccentClasses = () => currentWallpaper.cardAccent;
-  const getAccentHoverClasses = () => currentWallpaper.cardAccentHover;
 
   return (
     <div className={`min-h-screen bg-gradient-to-br ${currentWallpaper.gradient} text-white overflow-x-hidden relative`}>
@@ -146,7 +145,7 @@ const Dashboard: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/0 to-indigo-500/0 group-hover:from-indigo-500/10 group-hover:to-indigo-500/5 transition-all duration-300" />
               
               <div className="relative text-center flex flex-col items-center">
-                <div className={`w-16 h-16 bg-gradient-to-br ${getAccentClasses()} rounded-lg flex items-center justify-center mb-6 group-hover:${getAccentHoverClasses()} group-hover:scale-110 transition-all duration-300`}>
+                <div className={`w-16 h-16 bg-gradient-to-br ${getAccentClasses()} rounded-lg flex items-center justify-center mb-6 group-hover:brightness-110 group-hover:scale-110 transition-all duration-300`}>
                   <svg className="w-7 h-7 text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
                   </svg>
@@ -169,7 +168,7 @@ const Dashboard: React.FC = () => {
                   type="submit"
                   disabled={isCreating || !newBoardTitle.trim()}
                   onClick={(e) => e.stopPropagation()}
-                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-lg hover:${getAccentHoverClasses()} transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs leading-none`}
+                  className={`w-full bg-gradient-to-r ${getAccentClasses()} text-white font-black py-3 rounded-lg hover:brightness-110 transition-all shadow-lg active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-xs leading-none`}
                   style={{
                     boxShadow: `0 10px 25px rgba(0, 0, 0, 0.3)`
                   }}

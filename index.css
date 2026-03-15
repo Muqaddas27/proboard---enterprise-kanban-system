@@ -1,3 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ProBoard Dark Theme Variables */
+:root {
+  --pb-bg: #0a0618;
+  --pb-card: rgba(255,255,255,0.05);
+  --pb-border: rgba(139,92,246,0.15);
+  --pb-section-alt-bg: rgba(139,92,246,0.06);
+  --pb-footer-bg: rgba(0,0,0,0.25);
+  --pb-overlay-end: rgba(10,6,24,0.97);
+  --pb-overlay-mid: rgba(10,6,24,0.4);
+  --pb-overlay-strong: rgba(10,6,24,0.88);
+  --pb-blob1: rgba(139,92,246,0.18);
+  --pb-blob2: rgba(236,72,153,0.12);
+  --pb-blob3: rgba(6,182,212,0.10);
+}
+
 /* Professional Color Scheme */
 :root {
   --primary-600: #4f46e5;
